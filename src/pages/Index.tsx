@@ -717,6 +717,20 @@ const Index = () => {
                 La réalité s'est révélée bien différente.
               </p>
 
+              <div className="space-y-1 text-sm text-[#C7D6E0]">
+                <a
+                  href="/docs/preuve-01-devis-soins-11-2024.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex text-[#DDE7EE] underline underline-offset-4 transition hover:text-white"
+                >
+                  Consulter le devis initial transmis avant le déplacement (PDF)
+                </a>
+                <p className="text-xs text-[#C7D6E0]">
+                  Document original communiqué avant l’arrivée à la clinique.
+                </p>
+              </div>
+
               <p>
                 Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
                 et les complications sont apparues rapidement. Les promesses se sont évaporées, et je me suis retrouvé
