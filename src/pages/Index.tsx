@@ -10,7 +10,7 @@ import TestimonialCard from "@/components/TestimonialCard";
 import { testimonials } from "@/data/testimonials";
 import { timelineSteps, type TimelineStep } from "@/data/timelineSteps";
 import MegaMenuSInformer from "@/components/MegaMenuSInformer";
-import TimelineModal from "@/components/TimelineModal";
+import TimelineModalSimple from "@/components/TimelineModalSimple";
 const Index = () => {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -30,7 +30,6 @@ const Index = () => {
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [hasHeroVideoError, setHasHeroVideoError] = useState(false);
   const [isHeroPaused, setIsHeroPaused] = useState(false);
-  const [isTimelineDialogOpen, setIsTimelineDialogOpen] = useState(false);
   const {
     toast
   } = useToast();
@@ -1309,14 +1308,9 @@ const Index = () => {
         </div>
       </div>
     </footer>
-    <TimelineModal
-      step={openStep}
-      onOpenChange={(open) => {
-        setIsTimelineDialogOpen(open);
-        if (!open) {
-          setOpenStep(null);
-        }
-      }}
+    <TimelineModalSimple
+      activeStep={openStep}
+      onClose={() => setOpenStep(null)}
     />
 
   </div>;
