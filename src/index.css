@@ -53,10 +53,6 @@ All colors MUST be HSL.
                      radial-gradient(circle at 80% 20%, hsl(0 74% 52% / 0.1) 0%, transparent 50%),
                      linear-gradient(135deg, hsl(219 81% 2%) 0%, hsl(219 81% 6%) 100%);
 
-    /* Overlay tokens */
-    --overlay-veil: hsl(215 32% 12% / 0.75);
-    --overlay-ring: hsl(0 74% 52% / 0.5);
-    
     /* Typography Scale */
     --text-xs: 0.75rem;       /* 12px */
     --text-sm: 0.875rem;      /* 14px */
@@ -469,16 +465,6 @@ All colors MUST be HSL.
 
   .drop-shadow-ink {
     filter: drop-shadow(var(--shadow-ink-text));
-  }
-
-  /* Overlay utilities */
-  .overlay-veil {
-    background-color: var(--overlay-veil);
-  }
-
-  .ring-overlay-accent {
-    --tw-ring-color: var(--overlay-ring);
-    --tw-ring-offset-color: var(--overlay-veil);
   }
 
   /* Animations */

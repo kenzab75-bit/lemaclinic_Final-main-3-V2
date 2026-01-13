@@ -8,7 +8,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useToast } from "@/hooks/use-toast";
 import { Mail, Send, ShieldCheck } from "lucide-react";
 
 const contactSchema = z.object({
@@ -40,8 +39,6 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
-  const { toast } = useToast();
-  
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -69,14 +66,6 @@ export default function ContactForm() {
     );
 
     window.location.href = `mailto:${contactEmail}?subject=Collectif%20LemaClinic%20Truth&body=${payload}`;
-
-    toast({
-      title: "Message prêt à être envoyé",
-      description:
-        data.channel === "email"
-          ? "Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi sécurisé."
-          : "Précisez dans votre email que vous souhaitez poursuivre via " + contactChannels[data.channel].label.toLowerCase() + ".",
-    });
 
     form.reset({
       name: "",

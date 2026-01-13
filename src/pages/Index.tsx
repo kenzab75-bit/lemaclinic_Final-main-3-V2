@@ -3,19 +3,15 @@ import { Link } from "react-router-dom";
 import { Scale, Shield, FileText, AlertTriangle, ChevronRight, Quote, ArrowUp, Lock, ShieldCheck, ChevronDown, Menu, Mail, Loader2, Heart, FileCheck, Sparkles, Globe, Users, Megaphone, Fingerprint, KeyRound, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { useToast } from "@/hooks/use-toast";
 import ContactForm from "@/components/ContactForm";
 import TestimonialCard from "@/components/TestimonialCard";
 import { testimonials } from "@/data/testimonials";
-import { timelineSteps, type TimelineStep } from "@/data/timelineSteps";
+import { timelineSteps } from "@/data/timelineSteps";
 import MegaMenuSInformer from "@/components/MegaMenuSInformer";
-import TimelineModal from "@/components/TimelineModal";
 const Index = () => {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const [scrolled, setScrolled] = useState(false);
-  const [openStep, setOpenStep] = useState<TimelineStep | null>(null);
   const [activeFilter, setActiveFilter] = useState("Tous");
   const [testimony, setTestimony] = useState("");
   const [consentChecked, setConsentChecked] = useState(false);
@@ -23,17 +19,12 @@ const Index = () => {
   const [testimonyChannel, setTestimonyChannel] = useState("texte");
   const [encryptionReceipt, setEncryptionReceipt] = useState<string | null>(null);
   const [isSubmittingTestimony, setIsSubmittingTestimony] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [displayedTestimonials, setDisplayedTestimonials] = useState(3);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [hasHeroVideoError, setHasHeroVideoError] = useState(false);
   const [isHeroPaused, setIsHeroPaused] = useState(false);
-  const [isTimelineDialogOpen, setIsTimelineDialogOpen] = useState(false);
-  const {
-    toast
-  } = useToast();
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80);
@@ -42,7 +33,6 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const scrollToSection = (id: string) => {
-    setMobileMenuOpen(false); // Close mobile menu on navigation
     const element = document.getElementById(id);
     if (element) {
       const headerOffset = 100;
@@ -171,11 +161,6 @@ const Index = () => {
   const handleSubmitTestimony = async () => {
     // Vérification des champs obligatoires
     if (!testimony.trim() || !consentChecked) {
-      toast({
-        title: "Champs requis",
-        description: "Veuillez remplir tous les champs et accepter le consentement",
-        variant: "destructive"
-      });
       return;
     }
 
@@ -184,25 +169,12 @@ const Index = () => {
     setEncryptionReceipt(null);
 
     try {
-      // Ici tu mettras plus tard la logique d'envoi réel du témoignage
-      // Pour l'instant : confirmation locale
-      toast({
-        title: "Témoignage envoyé",
-        description: "Votre témoignage a bien été pris en compte.",
-      });
-
       // Réinitialisation du formulaire
       setTestimony("");
       setConsentChecked(false);
 
     } catch (error) {
       console.error("Erreur lors de l'envoi du témoignage :", error);
-
-      toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
-        variant: "destructive",
-      });
 
     } finally {
       // Toujours remettre l'état à false, même en cas d’erreur
@@ -288,31 +260,15 @@ const Index = () => {
     e.preventDefault();
 
     if (!newsletterEmail) {
-      toast({
-        variant: "destructive",
-        title: "Email requis",
-        description: "Veuillez entrer votre adresse email.",
-      });
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(newsletterEmail)) {
-      toast({
-        variant: "destructive",
-        title: "Email invalide",
-        description: "Veuillez entrer une adresse email valide.",
-      });
       return;
     }
 
     setIsSubscribing(true);
-
-    // Newsletter logic disabled (no Supabase)
-    toast({
-      title: "Merci !",
-      description: "Merci pour votre inscription à la newsletter.",
-    });
 
     setNewsletterEmail("");
     setIsSubscribing(false);
@@ -379,68 +335,9 @@ const Index = () => {
           </nav>
 
           {/* Mobile Navigation */}
-          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden">
-                <Menu className="h-6 w-6 text-muted-foreground" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-black/95 border-border/20">
-              <SheetHeader>
-                <SheetTitle className="text-left">
-                  <div className="flex items-center space-x-2">
-                    <Scale className="h-6 w-6 text-primary-red" />
-                    <span className="text-xl font-bold">
-                      <span className="text-gradient">Lema Clinic </span>
-                      <span className="text-red-gradient">Truth</span>
-                    </span>
-                  </div>
-                </SheetTitle>
-              </SheetHeader>
-
-              <nav className="flex flex-col space-y-4 mt-8">
-                <button onClick={() => {
-                  scrollToSection('accueil');
-                  setMobileMenuOpen(false);
-                }} className="text-left px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-md transition-all duration-300 font-medium">
-                  Accueil
-                </button>
-
-                <button onClick={() => {
-                  scrollToSection('histoire');
-                  setMobileMenuOpen(false);
-                }} className="text-left px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-md transition-all duration-300 font-medium">
-                  Mon histoire
-                </button>
-
-                <div className="px-4 py-2">
-                  <div className="text-sm font-semibold text-muted-foreground mb-2">S'informer</div>
-                  <button onClick={() => {
-                    scrollToSection('victimes');
-                    setMobileMenuOpen(false);
-                  }} className="w-full text-left px-4 py-3 text-muted-foreground hover:text-primary-red hover:bg-accent/50 rounded-md transition-all duration-300">
-                    Leurs méthodes
-                  </button>
-                  <button onClick={() => {
-                    scrollToSection('temoignages');
-                    setMobileMenuOpen(false);
-                  }} className="w-full text-left px-4 py-3 text-muted-foreground hover:text-primary-red hover:bg-accent/50 rounded-md transition-all duration-300">
-                    Témoignages
-                  </button>
-                  <Link to="/informer/questions-victimes" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 text-muted-foreground hover:text-primary-red hover:bg-accent/50 rounded-md transition-all duration-300">
-                    Vos questions importantes
-                  </Link>
-                </div>
-
-                <button onClick={() => {
-                  scrollToSection('contact');
-                  setMobileMenuOpen(false);
-                }} className="text-left px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-md transition-all duration-300 font-medium">
-                  Contact
-                </button>
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <Button variant="ghost" size="icon" className="lg:hidden" disabled>
+            <Menu className="h-6 w-6 text-muted-foreground" />
+          </Button>
         </div>
       </div>
     </header>
@@ -802,11 +699,9 @@ const Index = () => {
                         mb-4">{step.cardDescription}</p>
                         <Button
                           type="button"
-                          className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-6 py-3 shadow-lg hover:shadow-red-700/50 hover:scale-[1.02] transition flex items-center"
-                          onClick={() => {
-                            setOpenStep(step);
-                          }}
-                         >
+                          disabled
+                          className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-6 py-3 shadow-lg opacity-60 cursor-not-allowed transition flex items-center"
+                        >
                           Cliquer pour voir les détails
                           <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -1309,16 +1204,6 @@ const Index = () => {
         </div>
       </div>
     </footer>
-    <TimelineModal
-      step={openStep}
-      onOpenChange={(open) => {
-        setIsTimelineDialogOpen(open);
-        if (!open) {
-          setOpenStep(null);
-        }
-      }}
-    />
-
   </div>;
 };
 
