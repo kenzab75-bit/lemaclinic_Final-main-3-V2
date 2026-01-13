@@ -33,15 +33,14 @@ const TimelineModalSimple = ({ activeStep, onClose }: TimelineModalSimpleProps) 
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 relative">
-      <button
-        type="button"
-        aria-label="Fermer la modale"
-        className="absolute inset-0 h-full w-full cursor-pointer z-0"
-        onClick={onClose}
-      />
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
       <div
-        className="relative z-10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 bg-gradient-to-b from-[#1c2c3f] via-[#132233] to-[#0b141f] p-8 text-white shadow-2xl"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 bg-gradient-to-b from-[#1c2c3f] via-[#132233] to-[#0b141f] p-8 text-white shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-6">
