@@ -8,14 +8,12 @@ import { useToast } from "@/hooks/use-toast";
 import ContactForm from "@/components/ContactForm";
 import TestimonialCard from "@/components/TestimonialCard";
 import { testimonials } from "@/data/testimonials";
-import { timelineSteps, type TimelineStep } from "@/data/timelineSteps";
+import { timelineSteps } from "@/data/timelineSteps";
 import MegaMenuSInformer from "@/components/MegaMenuSInformer";
-import TimelineModalSimple from "@/components/TimelineModalSimple";
 const Index = () => {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const [scrolled, setScrolled] = useState(false);
-  const [openStep, setOpenStep] = useState<TimelineStep | null>(null);
   const [activeFilter, setActiveFilter] = useState("Tous");
   const [testimony, setTestimony] = useState("");
   const [consentChecked, setConsentChecked] = useState(false);
@@ -801,11 +799,9 @@ const Index = () => {
                         mb-4">{step.cardDescription}</p>
                         <Button
                           type="button"
-                          className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-6 py-3 shadow-lg hover:shadow-red-700/50 hover:scale-[1.02] transition flex items-center"
-                          onClick={() => {
-                            setOpenStep(step);
-                          }}
-                         >
+                          disabled
+                          className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-6 py-3 shadow-lg opacity-60 cursor-not-allowed transition flex items-center"
+                        >
                           Cliquer pour voir les détails
                           <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -1308,11 +1304,6 @@ const Index = () => {
         </div>
       </div>
     </footer>
-    <TimelineModalSimple
-      activeStep={openStep}
-      onClose={() => setOpenStep(null)}
-    />
-
   </div>;
 };
 
