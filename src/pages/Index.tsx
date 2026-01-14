@@ -720,16 +720,16 @@ const Index = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
-      px-2 py-0.5
-      text-[11px] font-medium
-      text-primary-red
-      rounded-md
-      bg-white/10
-      backdrop-blur-md
-      border border-white/20
-      hover:bg-white/20 hover:text-red-300
-      transition
-    "
+    px-2 py-0.5
+    text-[11px] font-medium
+    text-primary-red
+    rounded-md
+    bg-white/10
+    backdrop-blur-md
+    border border-white/20
+    hover:bg-white/20 hover:text-red-300
+    transition
+  "
                   >
                     Consulter le devis initial
                   </a>
@@ -752,8 +752,7 @@ const Index = () => {
                     <br />
                     Document original (PDF).
                   </span>
-                </span>
-                
+                </span>  
               </p>
               
               <p>
