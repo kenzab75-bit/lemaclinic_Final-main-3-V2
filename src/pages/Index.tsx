@@ -714,48 +714,48 @@ const Index = () => {
                 Comme beaucoup d'autres, j'ai été attiré par les promesses alléchantes de Lema Dental Clinic à Istanbul.
                 Des soins dentaires de qualité à des prix attractifs, une équipe professionnelle, des installations modernes...
                 La réalité s'est révélée bien différente.
-             </p>
+             <span className="ml-2 inline-block align-middle relative group -translate-y-[4px]">
+                  <a
+                    href="/docs/preuve-01-devis-soins-11-2024.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+      px-2 py-0.5
+      text-[11px] font-medium
+      text-primary-red
+      rounded-md
+      bg-white/10
+      backdrop-blur-md
+      border border-white/20
+      hover:bg-white/20 hover:text-red-300
+      transition
+    "
+                  >
+                    Consulter le devis initial
+                  </a>
 
-  {/* Lien + tooltip isolés (inline visuellement mais hors <p>) */}
-  <span className="inline-block align-middle relative group">
-    <a
-      href="/docs/preuve-01-devis-soins-11-2024.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        px-2 py-0.5
-        text-[11px] font-medium
-        text-red-400
-        rounded-md
-        bg-white/10
-        backdrop-blur-md
-        border border-white/20
-        hover:bg-white/20 hover:text-red-300
-        transition
-      "
-    >
-      Voir la preuve
-    </a>
-
-    {/* Tooltip */}
-    <span
-      className="
-        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
-        hidden group-hover:block
-        w-64
-        rounded-md
-        bg-black/90
-        p-2
-        text-xs text-white
-        shadow-lg
-        z-20
-      "
-    >
-      📄 Consulter le devis initial transmis avant le déplacement.
-      <br />
-      Document original communiqué avant l’arrivée à la clinique (PDF).
-    </span>
-  </span>
+                  {/* Tooltip */}
+                  <span
+                    className="
+      absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+      hidden group-hover:block
+      w-64
+      rounded-md
+      bg-[linear-gradient(180deg,#132029_100%)]
+      p-2
+      text-xs text-white            
+      shadow-lg
+      z-20
+    "
+                  >
+                    📄 Consulter le devis initial transmis avant le déplacement à la clinique Lema.
+                    <br />
+                    Document original (PDF).
+                  </span>
+                </span>
+                
+              </p>
+              
               <p>
                 Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
                 et les complications sont apparues rapidement. Les promesses se sont évaporées, et je me suis retrouvé
