@@ -714,46 +714,48 @@ const Index = () => {
                 Comme beaucoup d'autres, j'ai été attiré par les promesses alléchantes de Lema Dental Clinic à Istanbul.
                 Des soins dentaires de qualité à des prix attractifs, une équipe professionnelle, des installations modernes...
                 La réalité s'est révélée bien différente.
-             <span className="ml-2 inline-block align-middle relative group -translate-y-[4px]">
-                  <a
-                    href="/docs/preuve-01-devis-soins-11-2024.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-    px-2 py-0.5
-    text-[11px] font-medium
-    text-primary-red
-    rounded-md
-    bg-white/10
-    backdrop-blur-md
-    border border-white/20
-    hover:bg-white/20 hover:text-red-300
-    transition
-  "
-                  >
-                    Consulter le devis initial
-                  </a>
+              <span className="ml-2 inline-flex items-center relative group">
+    <a
+      href="/docs/preuve-01-devis-soins-11-2024.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-1
+        px-2 py-0.5
+        text-[11px] font-medium
+        text-red-300
+        rounded-full
+        bg-white/5
+        border border-white/10
+        backdrop-blur-sm
+        hover:bg-white/10 hover:text-red-200
+        transition
+      "
+    >
+      📄 preuve
+    </a>
 
-                  {/* Tooltip */}
-                  <span
-                    className="
-      absolute left-1/2 -translate-x-1/2 bottom-full mb-2
-      hidden group-hover:block
-      w-64
-      rounded-md
-      bg-[linear-gradient(180deg,#132029_100%)]
-      p-2
-      text-xs text-white            
-      shadow-lg
-      z-20
-    "
-                  >
-                    📄 Consulter le devis initial transmis avant le déplacement à la clinique Lema.
-                    <br />
-                    Document original (PDF).
-                  </span>
-                </span>  
-              </p>
+    {/* Tooltip premium */}
+    <span
+      className="
+        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+        hidden group-hover:block
+        w-72
+        rounded-lg
+        bg-black/90
+        p-3
+        text-xs text-white
+        shadow-xl
+        z-20
+      "
+    >
+      <strong className="block text-sm mb-1">Devis initial</strong>
+      Document communiqué avant le déplacement à la clinique.
+      <br />
+      Pièce justificative originale (PDF).
+    </span>
+  </span>
+</p>      
               
               <p>
                 Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
