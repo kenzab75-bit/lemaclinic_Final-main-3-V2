@@ -48,10 +48,10 @@ export const timelineSteps: TimelineStep[] = [
       "Aucun questionnaire médical sérieux",
       "Traitement prévu modifié sur place, au profit de soins beaucoup plus invasifs et coûteux",
       "Inflation des prix : facture finale 2 fois supérieure au devis",
-      "Menaces et pression : pression pour payer rapidement, pas de paiement pas de soin",
+      "Menaces et pression : paiement immédiat sinon pas de soin",
     ],
     sources: [
-      { label: "Factures comparées", description: "Devis initial/ordre ajoutés traitement" },
+      { label: "Factures comparées", description: "Devis initial vs facture finale" },
       { label: "Export de conversations WhatsApp" },
     ],
   },
