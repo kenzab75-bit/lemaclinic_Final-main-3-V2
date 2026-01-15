@@ -742,7 +742,7 @@ const Index = () => {
         hidden group-hover:block
         w-72
         rounded-lg
-        bg-black/90
+        bg-[linear-gradient(180deg,#132029_100%)]
         p-3
         text-xs text-white
         shadow-xl
@@ -750,9 +750,9 @@ const Index = () => {
       "
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
-      Document communiqué avant le déplacement à la clinique.
+      Pour lequel, j'ai accepté les soins et de venir me faire soigner en Turquie, à Lema Clinic.
       <br />
-      Pièce justificative originale (PDF).
+      Justificative originale (PDF).
     </span>
   </span>
 </p>      
