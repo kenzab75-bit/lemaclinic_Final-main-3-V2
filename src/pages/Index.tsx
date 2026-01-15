@@ -742,7 +742,7 @@ const Index = () => {
         hidden group-hover:block
         w-72
         rounded-lg
-       bg-[linear-gradient(180deg,#395066_0%,#132029_100%)]
+       bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
         p-3
         text-xs text-white
         shadow-xl
@@ -751,7 +751,7 @@ const Index = () => {
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
      Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
-Le contenu et le montant de ce devis ont été déterminants dans ma décision.
+Le contenu et le montant de ce devis avait été déterminants dans ma décision.
       <br />
       Document original transmis avant mon déplacement (PDF).
     </span>
