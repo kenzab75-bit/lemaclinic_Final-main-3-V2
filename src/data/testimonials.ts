@@ -10,7 +10,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 1,
     category: "Complications",
-    quote: "Après mon intervention, j'ai souffert de complications qui n'ont jamais été correctement prises en charge. Je me retrouve avec des dommages permanents.",
+    quote: "Après mon intervention, j'ai souffert de complications que la clinique n'a jamais voulu prendre en charge.",
     author: "Patient Anonyme",
     location: "France"
   },
