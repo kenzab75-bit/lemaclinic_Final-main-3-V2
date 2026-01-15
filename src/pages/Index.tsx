@@ -714,7 +714,7 @@ const Index = () => {
                 Comme beaucoup d'autres, j'ai été attiré par les promesses alléchantes de Lema Dental Clinic à Istanbul.
                 Des soins dentaires de qualité à des prix attractifs, une équipe professionnelle, des installations modernes...
                 La réalité s'est révélée bien différente.
-              <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+              <span className="ml-2 inline-flex items-center relative group -translate-y-[1px]">
     <a
       href="/docs/preuve-01-devis-soins-11-2024.pdf"
       target="_blank"
@@ -723,7 +723,7 @@ const Index = () => {
         inline-flex items-center gap-1
         px-2 py-0.5
         text-[11px] font-medium
-        text-red-300
+        text-primary-red
         rounded-full
         bg-white/5
         border border-white/10
