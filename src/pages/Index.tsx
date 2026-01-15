@@ -714,7 +714,7 @@ const Index = () => {
                 Comme beaucoup d'autres, j'ai été attiré par les promesses alléchantes de Lema Dental Clinic à Istanbul.
                 Des soins dentaires de qualité à des prix attractifs, une équipe professionnelle, des installations modernes...
                 La réalité s'est révélée bien différente.
-              <span className="ml-2 inline-flex items-center relative group -translate-y-[1px]">
+              <span className="ml-2 inline-flex items-center relative group -translate-y-[4px]">
     <a
       href="/docs/preuve-01-devis-soins-11-2024.pdf"
       target="_blank"
@@ -753,7 +753,7 @@ const Index = () => {
      Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
 Le contenu et le montant de ce devis avait été déterminants dans ma décision.
       <br />
-      Document original transmis avant mon déplacement (PDF).
+      Document certifié original transmis avant mon déplacement (PDF).
     </span>
   </span>
 </p>      
@@ -762,9 +762,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
                 Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
                 et les complications sont apparues rapidement. Les promesses se sont évaporées, et je me suis retrouvé
                 piégé dans un système bien rodé, conçu pour maximiser les profits au détriment de la santé des patients.
-                    <span className="ml-2 inline-flex items-center relative group -translate-y-[1px]">
+                    <span className="ml-2 inline-flex items-center relative group -translate-y-[4px]">
     <a
-      href="/docs/preuve-01-devis-soins-11-2024.pdf"
+      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
@@ -798,10 +798,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       "
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
-     Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
-Le contenu et le montant de ce devis avait été déterminants dans ma décision.
+     📄 Facture finale transmise à mon arriver à la clinique Lema.
       <br />
-      Document original transmis avant mon déplacement (PDF).
+      Document certifié original (PDF).
     </span>
   </span>
 </p> 
