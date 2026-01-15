@@ -757,12 +757,54 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
     </span>
   </span>
 </p>      
-              
+            
               <p>
                 Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
                 et les complications sont apparues rapidement. Les promesses se sont évaporées, et je me suis retrouvé
                 piégé dans un système bien rodé, conçu pour maximiser les profits au détriment de la santé des patients.
-              </p>
+                    <span className="ml-2 inline-flex items-center relative group -translate-y-[1px]">
+    <a
+      href="/docs/preuve-01-devis-soins-11-2024.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-1
+        px-2 py-0.5
+        text-[11px] font-medium
+        text-primary-red
+        rounded-full
+        bg-white/5
+        border border-white/10
+        backdrop-blur-sm
+        hover:bg-white/10 hover:text-red-200
+        transition
+      "
+    >
+      📄 document source
+    </a>
+
+    {/* Tooltip premium */}
+    <span
+      className="
+        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+        hidden group-hover:block
+        w-72
+        rounded-lg
+       bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
+        p-3
+        text-xs text-white
+        shadow-xl
+        z-20
+      "
+    >
+      <strong className="block text-sm mb-1">Devis initial</strong>
+     Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
+Le contenu et le montant de ce devis avait été déterminants dans ma décision.
+      <br />
+      Document original transmis avant mon déplacement (PDF).
+    </span>
+  </span>
+</p> 
 
               <p>
                 Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
