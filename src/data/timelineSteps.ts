@@ -29,7 +29,7 @@ export const timelineSteps: TimelineStep[] = [
       "Collaboration avec des influenceurs et stars internationales pour promouvoir la clinique",
     ],
     sources: [
-      { label: "Témoignage patient #12", description: "Facture initiale de 3500€ pour 28 soins prothétiques" },
+      { label: "Témoignage patient #1", description: "Facture initiale de 3840€ pour 13 courrones et 9 facettes" },
       { label: "Capture écran Facebook, Instagram, site web" },
       { label: "Conversation WhatsApp" },
     ],
@@ -44,11 +44,11 @@ export const timelineSteps: TimelineStep[] = [
     modalDescription:
       "Une fois sur place, vous vous retrouvez pris au piège, entièrement dépendants de la clinique, qui exploite cette position de force pour accélérer les procédures. Les consentements sont modifiés à la volée, les devis gonflés, sous pression psychologique et logistique. Refuser devient impensable, au risque de compromettre vos ressources et le séjour déjà engagé.",
     details: [
-      "Examen initial bâclé, expédié en moins de dix minutes",
-      "Traitement invasif prévu et adapté modifié sur place, au profit de soins beaucoup plus coûteux, souvent sans anesthésie",
-      "Multiplication des actes : meulage, dévitalisations, couronnes, nouveaux devis",
-      "Inflation des prix : facture finale 2 à 3 fois supérieure au devis",
-      "Menaces et pression : paiement en espèces, pression pour payer rapidement",
+      "Examen initial avec chirurgien bâclé, expédié en moins de dix minutes",
+      "Aucun questionnaire médical sérieux",
+      "Traitement prévu modifié sur place, au profit de soins beaucoup plus invasifs et coûteux",
+      "Inflation des prix : facture finale 2 fois supérieure au devis",
+      "Menaces et pression : pression pour payer rapidement, pas de paiement pas de soin",
     ],
     sources: [
       { label: "Factures comparées", description: "Devis initial/ordre ajoutés traitement" },
@@ -65,9 +65,12 @@ export const timelineSteps: TimelineStep[] = [
     modalDescription:
       "Une fois entre les mains du chirurgien, vous découvrez des pratiques expéditives où le profit prime sur la santé, sans le moindre scrupule à bafouer le code de déontologie médicale au nom de l'argent. Vous ne contrôlez plus rien...",
     details: [
+      "Acharnement médical",
+      "Multiplication des actes lourds : meulage, dévitalisations, couronnes, surdosage d'anesthésie",
       "Complications post-opératoires graves : douleurs chroniques, pulpite",
-      "Absence totale de suivi médical réel et retour en Europe",
-      "Prothèses ratées et implants mal posés nécessitant de grosses révisions",
+      "Aucun protocole de contrôle, d’accompagnement ou de prise en charge post-opératoire",
+      "Évitement, disparition progressive des interlocuteurs, de retour chez vous, vous êtes seul",
+      "Prothèses ratées nécessitant de grosses révisions",
       "Refus de prise en charge des complications",
       "Coûts de réparation en Europe dépassant largement les économies initiales",
     ],
