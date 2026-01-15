@@ -750,9 +750,10 @@ const Index = () => {
       "
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
-      Pour lequel, j'ai accepté les soins et de venir me faire soigner en Turquie, à Lema Clinic.
+     Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
+Le contenu et le montant de ce devis ont été déterminants dans ma décision, en comparaison avec les prix pratiqués en Europe.
       <br />
-      Justificative originale (PDF).
+      Document original transmis avant mon déplacement (PDF).
     </span>
   </span>
 </p>      
