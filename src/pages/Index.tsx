@@ -714,7 +714,7 @@ const Index = () => {
                 Comme beaucoup d'autres, j'ai été attiré par les promesses alléchantes de Lema Dental Clinic à Istanbul.
                 Des soins dentaires de qualité à des prix attractifs, une équipe professionnelle, des installations modernes...
                 La réalité s'est révélée bien différente.
-              <span className="ml-2 inline-flex items-center relative group -translate-y-[4px]">
+              <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
       href="/docs/preuve-01-devis-soins-11-2024.pdf"
       target="_blank"
@@ -762,7 +762,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
                 Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
                 et les complications sont apparues rapidement. Les promesses se sont évaporées, et je me suis retrouvé
                 piégé dans un système bien rodé, conçu pour maximiser les profits au détriment de la santé des patients.
-                    <span className="ml-2 inline-flex items-center relative group -translate-y-[4px]">
+                    <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
       href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
       target="_blank"
@@ -798,7 +798,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       "
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
-     📄 Facture finale transmise à mon arriver à la clinique Lema.
+     📄 Facture finale transmise le jour de mon arriver à la clinique Lema, présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
       Document certifié original (PDF).
     </span>
