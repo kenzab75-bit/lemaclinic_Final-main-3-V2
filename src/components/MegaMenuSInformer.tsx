@@ -118,31 +118,9 @@ const MegaMenuSInformer = ({ scrollToSection }: MegaMenuSInformerProps) => {
       >
         <div className="relative overflow-hidden rounded-2xl border border-neutral-300/40 bg-white/[0.97] shadow-2xl shadow-black/20 backdrop-blur-xl">
 
-          {/* Gradient premium */}
-          <div
-            className="absolute inset-0 z-0 bg-gradient-to-b 
-      from-[#CEDEF2]/30 
-      via-[#FAF9FF]/90 
-      to-[#EEF1F7]"
-          />
-
-          {/* Halo radial blanc */}
-          <div
-            className="absolute inset-0 z-0 
-      bg-[radial-gradient(circle_at_center,#FFFFFF0A,transparent_70%)]"
-          />
-
-          {/* Halo rouge */}
-          <div
-            className="absolute inset-0 z-0 
-      bg-[radial-gradient(circle_at_top_left,#E02B2B10,transparent_60%)]"
-          />
-
-          {/* Halo bleu */}
-          <div
-            className="absolute inset-0 z-0 
-      bg-[radial-gradient(circle_at_top_right,#3D5E73/04,transparent_55%)]"
-          />
+               {/* Gradient premium */}
+      <div
+        className="absolute inset-0 z-0 bg-gradient-to-b from-[#CEDEF2]/15 to-[#EEF1F7]/60" />
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 p-6 lg:p-10">
 
             {/* Carte principale gauche */}
