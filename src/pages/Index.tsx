@@ -665,9 +665,9 @@ const Index = () => {
               <p>
   Comme beaucoup, j'ai cru aux promesses d'un sourire parfait,
   à des soins modernes et à une équipe qualifiée.
- <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+<span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
-      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
+      href="/docs/preuve-01-devis-soins-11-2024.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
@@ -701,12 +701,13 @@ const Index = () => {
       "
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
-     📄 Facture finale transmise le jour de mon arriver à la clinique Lema, présentant une augmentation de +50 % sur le prix proposé au départ.
+     Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
+Le contenu et le montant de ce devis avait été déterminants dans ma décision.
       <br />
-      Document certifié original (PDF).
+      Document certifié original transmis avant mon déplacement (PDF).
     </span>
   </span>
-</p> 
+</p>      
 
 <p>
   Mais derrière cette façade séduisante, j'ai découvert une tout autre réalité :
