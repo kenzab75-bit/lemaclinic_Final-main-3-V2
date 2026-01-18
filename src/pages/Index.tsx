@@ -757,8 +757,8 @@ const Index = () => {
 
             <div className="space-y-4 text-[#DDE7EE] leading-relaxed text-lg">
 
- {/* INTRO – promesses */}
-<p>
+              {/* INTRO – promesses */}
+              <p>
   Comme beaucoup d'autres, j'ai été attirée par les promesses alléchantes de
   Lema Dental Clinic à Istanbul. Des soins dentaires de qualité à des prix
   attractifs, une équipe professionnelle, des installations modernes…
@@ -803,10 +803,10 @@ const Index = () => {
       communiqué avant le déplacement.
     </span>
   </span>
-</p>
+              </p>
 
-{/* SUR PLACE – basculement */}
-<p>
+              {/* SUR PLACE – basculement */}
+              <p>
   Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé,
   les promesses se sont rapidement évaporées, et les prix ont brutalement explosé,
   sans transparence ni possibilité de recul
@@ -850,10 +850,10 @@ const Index = () => {
   </span>.
   Je me suis retrouvée piégée dans un système bien rodé, conçu pour maximiser
   les profits au détriment de la santé des patients.
-</p>
+              </p>
 
-{/* CONSÉQUENCES – soins d’urgence */}
-<p>
+              {/* CONSÉQUENCES – soins d’urgence */}
+              <p>
   La rapidité d’exécution, concentrée sur un laps de temps extrêmement court,
   a conduit à un résultat catastrophique. Dès mon retour en France, j’ai été
   confrontée à des douleurs intenses, persistantes, et à l’absence totale de
@@ -897,13 +897,13 @@ const Index = () => {
       post-opératoires.
     </span>
   </span>.
-</p>
+              </p>
 
-{/* CONCLUSION */}
-<p>
-    Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
-    Ce site est ma voix, et j'espère qu'il deviendra aussi la vôtre.
-  </p>
+              {/* CONCLUSION */}
+              <p>
+                Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
+                Ce site est ma voix, et j'espère qu'il deviendra aussi la vôtre.
+              </p>
             </div>
           </div>
         </div>
