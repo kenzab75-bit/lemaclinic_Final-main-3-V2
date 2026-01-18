@@ -662,11 +662,59 @@ const Index = () => {
                 <span className="text-primary-red font-semibold">Lema Dental</span> à Istanbul.
               </p>
               <p>
-                Comme beaucoup, j'ai cru aux promesses d'un sourire parfait, à des soins modernes et à une équipe qualifiée.
-              </p>
-              <p>
-                Mais derrière cette façade séduisante, j'ai découvert une tout autre réalité : celle d'une expérience marquée par la douleur, les manquements et le mépris.
-              </p>
+  Comme beaucoup, j'ai cru aux promesses d'un sourire parfait,
+  à des soins modernes et à une équipe qualifiée.
+
+  <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+    <a
+      href="/docs/devis-initial-lema.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-1
+        px-2 py-0.5
+        text-[11px] font-medium
+        text-primary-red
+        rounded-full
+        bg-white/5
+        border border-white/10
+        backdrop-blur-sm
+        hover:bg-white/10 hover:text-red-200
+        transition
+      "
+    >
+      📄 document source
+    </a>
+
+    <span
+      className="
+        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+        hidden group-hover:block
+        w-72
+        rounded-lg
+        bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
+        p-3
+        text-xs text-white
+        shadow-xl
+        z-20
+      "
+    >
+      <strong className="block text-sm mb-1">
+        Devis initial
+      </strong>
+
+      Le contenu et le montant de ce devis ont été déterminants
+      dans ma décision.
+      <br />
+      Document certifié original transmis avant mon déplacement (PDF).
+    </span>
+  </span>
+</p>
+
+<p>
+  Mais derrière cette façade séduisante, j'ai découvert une tout autre réalité :
+  celle d'une expérience marquée par la douleur, les manquements et le mépris.
+</p>
               <p>
                 Je suis aujourd'hui une <span className="text-primary-red font-semibold">victime</span>, mais aussi une <span className="text-primary-red font-semibold">voix</span> — celle de toutes les personnes qui ont été trompées ou réduites au silence.
               </p>
