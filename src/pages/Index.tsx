@@ -757,8 +757,8 @@ const Index = () => {
 
             <div className="space-y-4 text-[#DDE7EE] leading-relaxed text-lg">
 
- {/* INTRO – promesses */}
-<p>
+              {/* INTRO – promesses */}
+              <p>
   Comme beaucoup d'autres, j'ai été attirée par les promesses alléchantes de
   Lema Dental Clinic à Istanbul. Des soins dentaires de qualité à des prix
   attractifs, une équipe professionnelle, des installations modernes…
@@ -803,10 +803,10 @@ const Index = () => {
       communiqué avant le déplacement.
     </span>
   </span>
-</p>
+              </p>
 
 {/* SUR PLACE – basculement */}
-<p>
+              <p>
   Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé,
   les promesses se sont rapidement évaporées, et les prix ont brutalement explosé,
   sans transparence ni possibilité de recul
