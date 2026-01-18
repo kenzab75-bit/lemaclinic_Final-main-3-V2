@@ -901,27 +901,28 @@ const Index = () => {
 
 {/* CONCLUSION */}
 <p>
-  Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
-  Ce site est ma voix, et j'espère qu'il deviendra aussi la vôtre.
-</p>
+    Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
+    Ce site est ma voix, et j'espère qu'il deviendra aussi la vôtre.
+  </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Elegant Section Divider */}
-    <section className="bg-[#FAF9FF] py-0.5">
-      <div className="section-divider"></div>
-    </section>
+  {/* Elegant Section Divider */}
+  <section className="bg-[#FAF9FF] py-0.5">
+    <div className="section-divider"></div>
+  </section>
 
-    {/* Timeline Section */}
-    <section
-      id="victimes"
-      className="relative py-section bg-[#FAF9FF] overflow-hidden"
-    >
-      {/* Gradient premium */}
-      <div
-        className="absolute inset-0 z-0 bg-gradient-to-b from-[#CEDEF2]/15 to-[#EEF1F7]/60" />
+  {/* Timeline Section */}
+  <section
+    id="victimes"
+    className="relative py-section bg-[#FAF9FF] overflow-hidden"
+  >
+    {/* Gradient premium */}
+    <div
+      className="absolute inset-0 z-0 bg-gradient-to-b from-[#CEDEF2]/15 to-[#EEF1F7]/60"
+    />
 
       {/* CONTENU */}
       <div className="max-w-6xl mx-auto px-6 lg:px-8 relative">
