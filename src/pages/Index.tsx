@@ -702,7 +702,7 @@ const Index = () => {
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
      Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
-Le contenu et le montant de ce devis avait été déterminants dans ma décision.
+  Le contenu et le montant de ce devis ont été déterminants dans ma décision.
       <br />
       Document certifié original transmis avant mon déplacement (PDF).
     </span>
