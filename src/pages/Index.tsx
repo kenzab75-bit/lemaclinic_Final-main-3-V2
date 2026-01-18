@@ -661,13 +661,13 @@ const Index = () => {
                 Je suis une patiente qui a fait confiance à la clinique{" "}
                 <span className="text-primary-red font-semibold">Lema Dental</span> à Istanbul.
               </p>
+              
               <p>
   Comme beaucoup, j'ai cru aux promesses d'un sourire parfait,
   à des soins modernes et à une équipe qualifiée.
-
-  <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+ <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
-      href="/docs/devis-initial-lema.pdf"
+      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
@@ -686,30 +686,27 @@ const Index = () => {
       📄 document source
     </a>
 
+    {/* Tooltip premium */}
     <span
       className="
         absolute left-1/2 -translate-x-1/2 bottom-full mb-2
         hidden group-hover:block
         w-72
         rounded-lg
-        bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
+       bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
         p-3
         text-xs text-white
         shadow-xl
         z-20
       "
     >
-      <strong className="block text-sm mb-1">
-        Devis initial
-      </strong>
-
-      Le contenu et le montant de ce devis ont été déterminants
-      dans ma décision.
+      <strong className="block text-sm mb-1">Devis initial</strong>
+     📄 Facture finale transmise le jour de mon arriver à la clinique Lema, présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
-      Document certifié original transmis avant mon déplacement (PDF).
+      Document certifié original (PDF).
     </span>
   </span>
-</p>
+</p> 
 
 <p>
   Mais derrière cette façade séduisante, j'ai découvert une tout autre réalité :
