@@ -760,55 +760,7 @@ const Index = () => {
                 Comme beaucoup d'autres, j'ai été attiré par les promesses alléchantes de Lema Dental Clinic à Istanbul.
                 Des soins dentaires de qualité à des prix attractifs, une équipe professionnelle, des installations modernes...
                 La réalité s'est révélée bien différente.
-              <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
-    <a
-      href="/docs/preuve-01-devis-soins-11-2024.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        inline-flex items-center gap-1
-        px-2 py-0.5
-        text-[11px] font-medium
-        text-primary-red
-        rounded-full
-        bg-white/5
-        border border-white/10
-        backdrop-blur-sm
-        hover:bg-white/10 hover:text-red-200
-        transition
-      "
-    >
-      📄 document source
-    </a>
-
-    {/* Tooltip premium */}
-    <span
-      className="
-        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
-        hidden group-hover:block
-        w-72
-        rounded-lg
-       bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
-        p-3
-        text-xs text-white
-        shadow-xl
-        z-20
-      "
-    >
-      <strong className="block text-sm mb-1">Devis initial</strong>
-     Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
-Le contenu et le montant de ce devis avait été déterminants dans ma décision.
-      <br />
-      Document certifié original transmis avant mon déplacement (PDF).
-    </span>
-  </span>
-</p>      
-            
-              <p>
-                Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
-                et les complications sont apparues rapidement. Les promesses se sont évaporées, et je me suis retrouvé
-                piégé dans un système bien rodé, conçu pour maximiser les profits au détriment de la santé des patients.
-                    <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+               <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
       href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
       target="_blank"
@@ -843,14 +795,109 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">Devis initial</strong>
-     📄 Facture finale transmise le jour de mon arriver à la clinique Lema, présentant une augmentation de +50 % sur le prix proposé au départ.
+      <strong className="block text-sm mb-1">Facture finale</strong>
+     📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
-      Document certifié original (PDF).
+      Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
     </span>
   </span>
 </p> 
+            
+             <p>
+  Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé,
+  les prix ont explosé, et les complications sont apparues rapidement.
+  Les promesses se sont évaporées, et je me suis retrouvée piégée dans un
+  système bien rodé, conçu pour maximiser les profits au détriment de la
+  santé des patients.
+</p>
+                <p className="mt-2">
+  Les soins initialement prévus ont été modifiés sans anticipation réelle,
+  entraînant une explosion des coûts
+  <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+    <a
+      href="/docs/preuve-02-facture-finale-07-xxxx.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-1
+        px-2 py-0.5
+        text-[11px] font-medium
+        text-primary-red
+        rounded-full
+        bg-white/5
+        border border-white/10
+        backdrop-blur-sm
+        hover:bg-white/10 hover:text-red-200
+        transition
+      "
+    >
+      📄 facture finale
+    </a>
 
+    {/* Tooltip */}
+    <span
+      className="
+        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+        hidden group-hover:block
+        w-72
+        rounded-lg
+        bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
+        p-3
+        text-xs text-white
+        shadow-xl
+        z-20
+      "
+    >
+      <strong className="block text-sm mb-1">Facture finale</strong>
+      Facturation modifiée sur place, sans correspondance avec le devis
+      initial transmis avant le déplacement.
+    </span>
+  </span>
+  , tandis que des soins d’urgence ont été engagés dans un contexte de
+  pression et de douleur
+  <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+    <a
+      href="/docs/preuve-05-soins-urgence-17-xxxx.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-1
+        px-2 py-0.5
+        text-[11px] font-medium
+        text-primary-red
+        rounded-full
+        bg-white/5
+        border border-white/10
+        backdrop-blur-sm
+        hover:bg-white/10 hover:text-red-200
+        transition
+      "
+    >
+      📄 soins d’urgence
+    </a>
+
+    {/* Tooltip */}
+    <span
+      className="
+        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+        hidden group-hover:block
+        w-72
+        rounded-lg
+        bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
+        p-3
+        text-xs text-white
+        shadow-xl
+        z-20
+      "
+    >
+      <strong className="block text-sm mb-1">Soins d’urgence</strong>
+      Actes réalisés en urgence suite à des complications apparues après
+      les premiers soins.
+    </span>
+  </span>
+  .
+</p>
+              
               <p>
                 Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
                 Ce site est ma voix, et j'espère qu'il deviendra aussi la vôtre.
