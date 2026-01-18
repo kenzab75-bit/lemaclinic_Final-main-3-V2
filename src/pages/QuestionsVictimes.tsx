@@ -99,11 +99,9 @@ const QuestionsVictimes = () => {
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-section bg-[#FAF9FF] overflow-hidden"
-    >
-      {/* Gradient premium */}
-      <div
-        className="absolute inset-0 z-0 bg-gradient-to-b from-[#CEDEF2]/15 to-[#EEF1F7]/60" />
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#E02B2B]/10 via-[#E02B2B]/5 to-background" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(224,43,43,0.1),transparent_50%)]" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
