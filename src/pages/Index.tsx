@@ -764,8 +764,8 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       
               <p>
                 Une fois sur place, les promesses se sont rapidement évaporées. Ce qui devait être une prise en charge 
-                maîtrisée s’est transformé en basculement brutal. Les diagnostics ont changé, les discours ont évolué, 
-                et les prix ont soudainement explosé, sans explication claire, sans temps de réflexion, sans réel choix possible.
+                maîtrisée s’est transformé en <span className="text-primary-red font-semibold">basculement</span> brutal. Les diagnostics ont changé, 
+                les discours ont évolué, et les prix ont soudainement explosé, sans explication claire, sans temps de réflexion, sans réel choix possible.
                     <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
       href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
