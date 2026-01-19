@@ -814,7 +814,50 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
     mais un rouage dans un système parfaitement rodé —
     un mécanisme où la rentabilité prenait le pas sur la prudence médicale,
     et où la santé des patients devenait secondaire.
-  </p>
+                
+    <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+    <a
+      href="/docs/preuve-03-Pano-avant-après.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-1
+        px-2 py-0.5
+        text-[11px] font-medium
+        text-primary-red
+        rounded-full
+        bg-white/5
+        border border-white/10
+        backdrop-blur-sm
+        hover:bg-white/10 hover:text-red-200
+        transition
+      "
+    >
+      📄 document source
+    </a>
+
+    <span
+      className="
+        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+        hidden group-hover:block
+        w-72
+        rounded-lg
+        bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
+        p-3
+        text-xs text-white
+        shadow-xl
+        z-20
+      "
+    >
+      <strong className="block text-sm mb-1">
+        Panoramique dentaire avant/après
+      </strong>
+      Comparaison montrant la multiplication d’actes invasifs
+      sur un temps très court, révélant un acharnement médical
+      dépassant les principes d’une médecine éthique et déontologique.
+    </span>
+  </span>
+</p>
 
               <p>
     La rapidité d’exécution, concentrée sur un laps de temps anormalement court,
