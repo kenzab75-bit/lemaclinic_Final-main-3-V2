@@ -847,7 +847,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">Facture finale</strong>
+      <strong className="block text-sm mb-1">Pano avant après</strong>
      📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
       Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
