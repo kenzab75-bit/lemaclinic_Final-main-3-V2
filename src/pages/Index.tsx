@@ -804,9 +804,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
 </p>      
             
               <p>
-                Une fois sur place, le cauchemar a commencé. Les diagnostics ont changé, les prix ont explosé,
-                et les complications sont apparues rapidement. Les promesses se sont évaporées, et je me suis retrouvé
-                piégé dans un système bien rodé, conçu pour maximiser les profits au détriment de la santé des patients.
+                Une fois sur place, les promesses se sont rapidement évaporées. Ce qui devait être une prise en charge 
+                maîtrisée s’est transformé en basculement brutal. Les diagnostics ont changé, les discours ont évolué, 
+                et les prix ont soudainement explosé, sans explication claire, sans temps de réflexion, sans réel choix possible.
                     <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
       href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
