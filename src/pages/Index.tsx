@@ -814,7 +814,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
     un mécanisme où la rentabilité prenait le pas sur la prudence médicale, et où la santé des patients devenait secondaire.
     <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
-      href="/docs/preuve-03-Pano-avant-après.pdf"
+      href="/docs/preuve-04-pano-avant-soins.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
