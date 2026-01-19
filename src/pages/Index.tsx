@@ -848,9 +848,11 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       "
     >
       <strong className="block text-sm mb-1">Pano avant après</strong>
-     📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
+      📄 Comparaison montrant la multiplication d’actes invasifs
+  sur un temps très court, révélant un acharnement médical
+  loin des principes d’une médecine éthique et déontologique.
       <br />
-      Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
+      Document certifié original (PDF).
     </span>
   </span>
 </p> 
@@ -897,7 +899,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       "
     >
       <strong className="block text-sm mb-1">Certicat</strong>
-     📄 Certicat du Dentiste pour les soins réalisés en urgence.
+     📄 Certicat médical pour les soins réalisés en urgence.
       <br />
       Document certifié original (PDF).
     </span>
