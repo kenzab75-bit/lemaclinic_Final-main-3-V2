@@ -760,49 +760,8 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
                 Comme beaucoup d'autres, j'ai été attiré par les promesses alléchantes de Lema Dental Clinic à Istanbul.
                 Des soins dentaires de qualité à des prix attractifs, une équipe professionnelle, des installations modernes...
                 La réalité s'est révélée bien différente.
-              <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
-    <a
-      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        inline-flex items-center gap-1
-        px-2 py-0.5
-        text-[11px] font-medium
-        text-primary-red
-        rounded-full
-        bg-white/5
-        border border-white/10
-        backdrop-blur-sm
-        hover:bg-white/10 hover:text-red-200
-        transition
-      "
-    >
-      📄 document source
-    </a>
-
-    {/* Tooltip premium */}
-    <span
-      className="
-        absolute left-1/2 -translate-x-1/2 bottom-full mb-2
-        hidden group-hover:block
-        w-72
-        rounded-lg
-       bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
-        p-3
-        text-xs text-white
-        shadow-xl
-        z-20
-      "
-    >
-      <strong className="block text-sm mb-1">Facture finale</strong>
-     📄 Facture finale transmise le jour de mon arriver à la clinique Lema, présentant une augmentation de +50 % sur le prix proposé au départ.
-      <br />
-      Document certifié original transmis avant mon déplacement (PDF).
-    </span>
-  </span>
-</p>      
-            
+             </p>
+      
               <p>
                 Une fois sur place, les promesses se sont rapidement évaporées. Ce qui devait être une prise en charge 
                 maîtrisée s’est transformé en basculement brutal. Les diagnostics ont changé, les discours ont évolué, 
@@ -842,7 +801,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">Devis initial</strong>
+      <strong className="block text-sm mb-1">Facture finale</strong>
      📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
       Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
@@ -850,6 +809,62 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
   </span>
 </p> 
 
+              <p>
+    Très vite, j’ai compris que je n’étais plus une patiente,
+    mais un rouage dans un système parfaitement rodé —
+    un mécanisme où la rentabilité prenait le pas sur la prudence médicale,
+    et où la santé des patients devenait secondaire.
+  </p>
+
+              <p>
+    La rapidité d’exécution, concentrée sur un laps de temps anormalement court,
+    a laissé des traces profondes. Le résultat a été catastrophique.
+    Dès mon retour en France, la douleur s’est imposée, intense et persistante,
+    sans aucun suivi ni prise de nouvelles de la part de la clinique.
+    Face à cette situation, j’ai dû engager des soins d’urgence.
+
+    <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+      <a
+        href="/docs/preuve-05-soins-urgence-17-06-2025.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="
+          inline-flex items-center gap-1
+          px-2 py-0.5
+          text-[11px] font-medium
+          text-primary-red
+          rounded-full
+          bg-white/5
+          border border-white/10
+          backdrop-blur-sm
+          hover:bg-white/10 hover:text-red-200
+          transition
+        "
+      >
+        📄 soins d’urgence
+      </a>
+
+      {/* Tooltip premium */}
+      <span
+        className="
+          absolute left-1/2 -translate-x-1/2 bottom-full mb-2
+          hidden group-hover:block
+          w-72
+          rounded-lg
+          bg-[linear-gradient(180deg,#395066_0%,#132029_50%)]
+          p-3
+          text-xs text-white
+          shadow-xl
+          z-20
+        "
+      >
+        <strong className="block text-sm mb-1">Soins d’urgence</strong>
+        Actes médicaux réalisés après mon retour en France
+        afin de traiter les complications post-opératoires.
+      </span>
+    </span>
+  </p>
+              
               <p>
                 Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
                 Ce site est ma voix, et j'espère qu'il deviendra aussi la vôtre.
