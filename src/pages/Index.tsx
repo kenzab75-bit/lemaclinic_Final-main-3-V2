@@ -812,9 +812,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
               <p>
     Très vite, j’ai compris que je n’étais plus une patiente, mais un rouage dans un système parfaitement rodé —
     un mécanisme où la rentabilité prenait le pas sur la prudence médicale, et où la santé des patients devenait secondaire.
-        <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+    span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
-      href="/docs/preuve-03-Pano-avant-après.pdf"
+      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
@@ -847,10 +847,10 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">Pano avant-après</strong>
-     📄 Comparaison montrant la multiplication d’actes invasifs.
+      <strong className="block text-sm mb-1">Facture finale</strong>
+     📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
-      Document certifié original (PDF).
+      Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
     </span>
   </span>
 </p> 
