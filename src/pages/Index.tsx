@@ -902,7 +902,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
     </span>
   </span>
-</p> 
+</p>
               
               <p>
                 Aujourd'hui, je me bats pour exposer ces pratiques et aider d'autres victimes.
