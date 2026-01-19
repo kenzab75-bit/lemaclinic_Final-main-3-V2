@@ -812,7 +812,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
               <p>
     Très vite, j’ai compris que je n’étais plus une patiente, mais un rouage dans un système parfaitement rodé —
     un mécanisme où la rentabilité prenait le pas sur la prudence médicale, et où la santé des patients devenait secondaire.
-    span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
+    <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
       href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
       target="_blank"
