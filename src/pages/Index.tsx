@@ -836,6 +836,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       📄 document source
     </a>
 
+    {/* Tooltip premium */}
     <span
       className="
         absolute left-1/2 -translate-x-1/2 bottom-full mb-2
@@ -849,15 +850,15 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">
-        Panoramique dentaire avant/après
-      </strong>
+      <strong className="block text-sm mb-1">Panoramique dentaire avant/après</strong>
       Comparaison montrant la multiplication d’actes invasifs
       sur un temps très court, révélant un acharnement médical
       dépassant les principes d’une médecine éthique et déontologique.
+      <br />
+      Document certifié original (PDF).
     </span>
   </span>
-</p>
+</p>      
 
               <p>
     Des soins dentaires lourds et invasifs ont été réalisés à la chaîne,
