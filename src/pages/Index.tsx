@@ -849,15 +849,13 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">Panoramique dentaire avant/après</strong>
-      Comparaison montrant la multiplication d’actes invasifs
-      sur un temps très court, révélant un acharnement médical
-      dépassant les principes d’une médecine éthique et déontologique.
+      <strong className="block text-sm mb-1">Facture finale</strong>
+     📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
-      Document certifié original (PDF).
+      Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
     </span>
   </span>
-</p>      
+</p>  
 
               <p>
     Des soins dentaires lourds et invasifs ont été réalisés à la chaîne,
