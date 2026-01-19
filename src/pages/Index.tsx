@@ -814,7 +814,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
     un mécanisme où la rentabilité prenait le pas sur la prudence médicale, et où la santé des patients devenait secondaire.
         <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
-      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
+      href="/docs/preuve-03-Pano-avant-après.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
@@ -847,10 +847,12 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">Facture finale</strong>
-     📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
+      <strong className="block text-sm mb-1">Pano avant/après</strong>
+     📄 Comparaison montrant la multiplication d’actes invasifs
+sur un temps très court, révélant un acharnement médical
+loin des principes d’une médecine éthique et déontologique.
       <br />
-      Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
+      Document certifié original (PDF).
     </span>
   </span>
 </p> 
