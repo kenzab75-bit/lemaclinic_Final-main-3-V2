@@ -860,12 +860,11 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
 </p>
 
               <p>
-    La rapidité d’exécution, concentrée sur un laps de temps anormalement court,
-    a laissé des traces profondes. Le résultat a été catastrophique.
-    Dès mon retour en France, la douleur s’est imposée, intense et persistante,
-    sans aucun suivi ni prise de nouvelles de la part de la clinique.
-    Face à cette situation, j’ai dû engager des soins d’urgence.
-
+    Des soins dentaires lourds et invasifs ont été réalisés à la chaîne,
+    sur un laps de temps très court, laissant des traces profondes. Le résultat a été catastrophique. 
+    Dès mon retour en France, la douleur s’est imposée, violente, sans aucun suivi 
+    de la part de la clinique. Face à cette situation, j’ai dû engager des soins d’urgence coûteux.
+  
     <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
       <a
         href="/docs/preuve-05-soins-urgence-17-06-2025.pdf"
