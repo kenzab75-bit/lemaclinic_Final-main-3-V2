@@ -762,7 +762,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
                 La réalité s'est révélée bien différente.
               <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
-      href="/docs/preuve-01-devis-soins-11-2024.pdf"
+      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
@@ -795,9 +795,8 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         z-20
       "
     >
-      <strong className="block text-sm mb-1">Devis initial</strong>
-     Document sur la base duquel j’ai accepté de me faire soigner en Turquie auprès de Lema Clinic.
-Le contenu et le montant de ce devis avait été déterminants dans ma décision.
+      <strong className="block text-sm mb-1">Facture finale</strong>
+     📄 Facture finale transmise le jour de mon arriver à la clinique Lema, présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
       Document certifié original transmis avant mon déplacement (PDF).
     </span>
@@ -844,9 +843,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       "
     >
       <strong className="block text-sm mb-1">Devis initial</strong>
-     📄 Facture finale transmise le jour de mon arriver à la clinique Lema, présentant une augmentation de +50 % sur le prix proposé au départ.
+     📄 Facture finale présentant une augmentation de +50 % sur le prix proposé au départ.
       <br />
-      Document certifié original (PDF).
+      Document certifié original, transmis le jour de mon arriver à la clinique Lema (PDF).
     </span>
   </span>
 </p> 
