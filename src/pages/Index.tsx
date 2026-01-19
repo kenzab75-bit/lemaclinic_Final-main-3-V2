@@ -863,7 +863,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
   
    <span className="ml-2 inline-flex items-center relative group -translate-y-[2px]">
     <a
-      href="/docs/preuve-02-facture-finale-07-06-2025.pdf"
+      href="/docs/preuve-07-Certificat-soins-30-06-25.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="
