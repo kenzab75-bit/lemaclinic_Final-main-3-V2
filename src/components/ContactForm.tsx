@@ -73,17 +73,19 @@ export default function ContactForm() {
     event?.preventDefault();
     setSubmitStatus(null);
 
-    if (!CONTACT_ENDPOINT) {
+    const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT;
+
+    if (!contactEndpoint) {
       console.error("Missing VITE_CONTACT_ENDPOINT: unable to send contact form.");
       setSubmitStatus({
         type: "error",
-        message: "Impossible d'envoyer… réessayez",
+        message: "Configuration manquante : VITE_CONTACT_ENDPOINT. Impossible d'envoyer le message.",
       });
       return;
     }
 
     try {
-      const response = await fetch(CONTACT_ENDPOINT, {
+      const response = await fetch(contactEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +101,7 @@ export default function ContactForm() {
       const result = await response.json().catch(() => null) as { error?: string } | null;
 
       if (!response.ok) {
-        throw new Error(result?.error || "Impossible d'envoyer… réessayez");
+        throw new Error(result?.error || "Impossible d'envoyer le message… réessayez.");
       }
 
       setSubmitStatus({
@@ -123,7 +125,7 @@ export default function ContactForm() {
         consent: false,
       });
     } catch (error: unknown) {
-      const message = error instanceof Error ? error.message : "Impossible d'envoyer… réessayez";
+      const message = error instanceof Error ? error.message : "Impossible d'envoyer le message… réessayez.";
       setSubmitStatus({
         type: "error",
         message,
