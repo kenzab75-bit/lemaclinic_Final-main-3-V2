@@ -66,6 +66,22 @@ npm run dev -- --host
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Environment variables
+
+Create a local `.env` file from `.env.example` and configure:
+
+```sh
+# Option 1: explicit contact endpoint
+VITE_CONTACT_ENDPOINT=https://your-api.example.com/contact
+
+# Option 2: fallback via Supabase Edge Function (/functions/v1/contact-submit)
+VITE_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+```
+
+- `VITE_CONTACT_ENDPOINT` (optional): explicit HTTP endpoint used by the contact form (`POST` JSON).
+- `VITE_SUPABASE_URL` (fallback): if `VITE_CONTACT_ENDPOINT` is empty, the form posts to `${VITE_SUPABASE_URL}/functions/v1/contact-submit`.
+- If both are missing, the form stays on page and displays a clear UI configuration error.
+
 ## What technologies are used for this project?
 
 This project is built with:
