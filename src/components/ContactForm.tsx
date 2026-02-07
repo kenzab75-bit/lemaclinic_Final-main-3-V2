@@ -12,6 +12,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send, ShieldCheck } from "lucide-react";
 
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT;
+
 const contactSchema = z.object({
   name: z
     .string()
