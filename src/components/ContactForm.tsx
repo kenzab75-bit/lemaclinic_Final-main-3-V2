@@ -74,18 +74,21 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT;
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const resolvedEndpoint =
+      contactEndpoint || (supabaseUrl ? `${supabaseUrl}/functions/v1/contact-submit` : "");
 
-    if (!contactEndpoint) {
-      console.error("Missing VITE_CONTACT_ENDPOINT: unable to send contact form.");
+    if (!resolvedEndpoint) {
+      console.error("Missing VITE_CONTACT_ENDPOINT and VITE_SUPABASE_URL: unable to send contact form.");
       setSubmitStatus({
         type: "error",
-        message: "Configuration manquante : VITE_CONTACT_ENDPOINT. Impossible d'envoyer le message.",
+        message: "Configuration manquante : définissez VITE_CONTACT_ENDPOINT (ou VITE_SUPABASE_URL).",
       });
       return;
     }
 
     try {
-      const response = await fetch(contactEndpoint, {
+      const response = await fetch(resolvedEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
