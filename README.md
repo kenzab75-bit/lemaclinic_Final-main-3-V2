@@ -66,6 +66,17 @@ npm run dev -- --host
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Environment variables
+
+Create a local `.env` file from `.env.example` and configure:
+
+```sh
+VITE_CONTACT_ENDPOINT=https://your-api.example.com/contact
+```
+
+- `VITE_CONTACT_ENDPOINT`: HTTP endpoint used by the contact form (`POST` JSON).
+- If this variable is missing, the form stays on page and shows a clear UI error instead of trying to open an email client.
+
 ## What technologies are used for this project?
 
 This project is built with:
