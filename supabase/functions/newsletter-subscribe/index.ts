@@ -123,13 +123,14 @@ const handler = async (req: Request): Promise<Response> => {
         },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in newsletter-subscribe function:", error);
-    
+    const errorMessage = error instanceof Error ? error.message : String(error);
+
     return new Response(
       JSON.stringify({ 
         error: "Une erreur est survenue lors de l'inscription.",
-        details: error.message 
+        details: errorMessage 
       }),
       {
         status: 500,
