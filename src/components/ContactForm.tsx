@@ -1,3 +1,4 @@
+import { useState, type BaseSyntheticEvent } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -43,7 +44,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const { toast } = useToast();
-  const [submitStatus, setSubmitStatus] = React.useState<{
+  const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error";
     message: string;
   } | null>(null);
@@ -68,7 +69,7 @@ export default function ContactForm() {
       },
   } as const;
 
-  const onSubmit = async (data: ContactFormValues, event?: React.BaseSyntheticEvent) => {
+  const onSubmit = async (data: ContactFormValues, event?: BaseSyntheticEvent) => {
     event?.preventDefault();
     setSubmitStatus(null);
 
