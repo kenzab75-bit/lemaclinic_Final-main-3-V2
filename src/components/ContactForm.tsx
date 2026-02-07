@@ -1,3 +1,4 @@
+import { useState, type BaseSyntheticEvent } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -10,6 +11,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send, ShieldCheck } from "lucide-react";
+
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT;
 
 const contactSchema = z.object({
   name: z
@@ -41,6 +44,10 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const { toast } = useToast();
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -53,7 +60,6 @@ export default function ContactForm() {
     },
   });
 
-  const contactEmail = "collectif@lemaclinictruth.fr";
   const contactChannels = {
     email: {
       label: "Email chiffré",
@@ -63,28 +69,71 @@ export default function ContactForm() {
       },
   } as const;
 
-  const onSubmit = (data: ContactFormValues) => {
-    const payload = encodeURIComponent(
-      `Nouveau message du collectif\n\nNom: ${data.name}\nEmail: ${data.email}\nCanal souhaité: ${contactChannels[data.channel].label}\n\n${data.message}`
-    );
+  const onSubmit = async (data: ContactFormValues, event?: BaseSyntheticEvent) => {
+    event?.preventDefault();
+    setSubmitStatus(null);
 
-    window.location.href = `mailto:${contactEmail}?subject=Collectif%20LemaClinic%20Truth&body=${payload}`;
+    if (!CONTACT_ENDPOINT) {
+      console.error("Missing VITE_CONTACT_ENDPOINT: unable to send contact form.");
+      setSubmitStatus({
+        type: "error",
+        message: "Impossible d'envoyer… réessayez",
+      });
+      return;
+    }
 
-    toast({
-      title: "Message prêt à être envoyé",
-      description:
-        data.channel === "email"
-          ? "Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi sécurisé."
-          : "Précisez dans votre email que vous souhaitez poursuivre via " + contactChannels[data.channel].label.toLowerCase() + ".",
-    });
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: data.name,
+          email: data.email,
+          preferredChannel: data.channel,
+          message: data.message,
+        }),
+      });
 
-    form.reset({
-      name: "",
-      email: "",
-      message: "",
-      channel: "email",
-      consent: false,
-    });
+      const result = await response.json().catch(() => null) as { error?: string } | null;
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Impossible d'envoyer… réessayez");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Message envoyé. Nous revenons vers vous…",
+      });
+
+      toast({
+        title: "Message envoyé",
+        description:
+          data.channel === "email"
+            ? "Message envoyé. Nous revenons vers vous…"
+            : `Message envoyé. Nous reviendrons vers vous via ${contactChannels[data.channel].label.toLowerCase()}.`,
+      });
+
+      form.reset({
+        name: "",
+        email: "",
+        message: "",
+        channel: "email",
+        consent: false,
+      });
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Impossible d'envoyer… réessayez";
+      setSubmitStatus({
+        type: "error",
+        message,
+      });
+      toast({
+        variant: "destructive",
+        title: "Envoi impossible",
+        description: message,
+      });
+    }
   };
 
   return (
@@ -230,6 +279,14 @@ export default function ContactForm() {
           <p className="text-sm text-white/70 text-center">
             * Champs obligatoires
           </p>
+          {submitStatus && (
+            <p
+              className={`text-sm text-center ${submitStatus.type === "success" ? "text-emerald-300" : "text-red-300"}`}
+              role={submitStatus.type === "error" ? "alert" : "status"}
+            >
+              {submitStatus.message}
+            </p>
+          )}
         </form>
       </Form>
     </div>
