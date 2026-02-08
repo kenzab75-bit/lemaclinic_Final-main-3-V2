@@ -307,14 +307,41 @@ const Index = () => {
 
     setIsSubscribing(true);
 
-    // Newsletter logic disabled (no Supabase)
-    toast({
-      title: "Merci !",
-      description: "Merci pour votre inscription à la newsletter.",
-    });
+    try {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      if (!supabaseUrl) {
+        throw new Error("Configuration Supabase manquante (VITE_SUPABASE_URL).");
+      }
 
-    setNewsletterEmail("");
-    setIsSubscribing(false);
+      const response = await fetch(`${supabaseUrl}/functions/v1/newsletter-subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      const data = await response.json().catch(() => null) as { ok?: boolean; error?: string } | null;
+
+      if (!response.ok || data?.ok === false) {
+        throw new Error(data?.error || "Une erreur est survenue lors de l'inscription.");
+      }
+
+      toast({
+        title: "Merci !",
+        description: "Merci pour votre inscription à la newsletter.",
+      });
+      setNewsletterEmail("");
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Une erreur est survenue lors de l'inscription.";
+      toast({
+        variant: "destructive",
+        title: "Inscription impossible",
+        description: message,
+      });
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   const filteredTestimonials = activeFilter === "Tous"

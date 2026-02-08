@@ -1,21 +1,42 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:4173",
+  "http://127.0.0.1:5173",
+  "http://127.0.0.1:4173",
+  // TODO: Add the production domain once confirmed.
+];
+
+function getCorsHeaders(origin: string | null) {
+  const allowOrigin = origin && allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+
+  return {
+    "Access-Control-Allow-Origin": allowOrigin,
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
+}
 
 interface SubscribeRequest {
   email: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  const corsHeaders = getCorsHeaders(req.headers.get("origin"));
+
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    if (req.method !== "POST") {
+      return new Response(JSON.stringify({ ok: false, error: "Méthode non autorisée" }), {
+        status: 405,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
     const { email }: SubscribeRequest = await req.json();
 
     console.log("Newsletter subscription request for:", email);
@@ -24,7 +45,7 @@ const handler = async (req: Request): Promise<Response> => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
       return new Response(
-        JSON.stringify({ error: "Email invalide" }),
+        JSON.stringify({ ok: false, error: "Email invalide" }),
         {
           status: 400,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -60,6 +81,7 @@ const handler = async (req: Request): Promise<Response> => {
         if (contactResponse.status === 409) {
           return new Response(
             JSON.stringify({ 
+              ok: false,
               error: "Cet email est déjà inscrit à la newsletter."
             }),
             {
@@ -112,7 +134,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     return new Response(
       JSON.stringify({ 
-        success: true,
+        ok: true,
         message: "Inscription réussie ! Vérifiez votre email.",
       }),
       {
@@ -123,13 +145,15 @@ const handler = async (req: Request): Promise<Response> => {
         },
       }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in newsletter-subscribe function:", error);
-    
+    const errorMessage = error instanceof Error ? error.message : String(error);
+
     return new Response(
       JSON.stringify({ 
+        ok: false,
         error: "Une erreur est survenue lors de l'inscription.",
-        details: error.message 
+        details: errorMessage 
       }),
       {
         status: 500,

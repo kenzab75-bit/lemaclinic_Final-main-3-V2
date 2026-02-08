@@ -66,6 +66,19 @@ npm run dev -- --host
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Environment variables
+
+Create a local `.env` file from `.env.example` and configure:
+
+```sh
+# Optional: your own backend endpoint
+VITE_CONTACT_ENDPOINT=https://your-api.example.com/contact
+```
+
+- `VITE_CONTACT_ENDPOINT` (optional): explicit HTTP endpoint used by the contact form (`POST`).
+- If `VITE_CONTACT_ENDPOINT` is empty, the form falls back to Formspree:
+  `https://formspree.io/f/xykdyaad`.
+
 ## What technologies are used for this project?
 
 This project is built with:

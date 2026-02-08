@@ -1,3 +1,4 @@
+import { useState, type BaseSyntheticEvent } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -10,6 +11,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send, ShieldCheck } from "lucide-react";
+
+const DEFAULT_CONTACT_ENDPOINT = "https://formspree.io/f/xykdyaad";
+const CONTACT_SUBJECT = "Nouveau message - Contact site";
 
 const contactSchema = z.object({
   name: z
@@ -41,6 +45,10 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const { toast } = useToast();
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -53,7 +61,6 @@ export default function ContactForm() {
     },
   });
 
-  const contactEmail = "collectif@lemaclinictruth.fr";
   const contactChannels = {
     email: {
       label: "Email chiffré",
@@ -63,28 +70,69 @@ export default function ContactForm() {
       },
   } as const;
 
-  const onSubmit = (data: ContactFormValues) => {
-    const payload = encodeURIComponent(
-      `Nouveau message du collectif\n\nNom: ${data.name}\nEmail: ${data.email}\nCanal souhaité: ${contactChannels[data.channel].label}\n\n${data.message}`
-    );
+  const onSubmit = async (data: ContactFormValues, event?: BaseSyntheticEvent) => {
+    event?.preventDefault();
+    setSubmitStatus(null);
 
-    window.location.href = `mailto:${contactEmail}?subject=Collectif%20LemaClinic%20Truth&body=${payload}`;
+    const resolvedEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT || DEFAULT_CONTACT_ENDPOINT;
 
-    toast({
-      title: "Message prêt à être envoyé",
-      description:
-        data.channel === "email"
-          ? "Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi sécurisé."
-          : "Précisez dans votre email que vous souhaitez poursuivre via " + contactChannels[data.channel].label.toLowerCase() + ".",
-    });
+    try {
+      const payload = new FormData();
+      payload.append("fullName", data.name);
+      payload.append("email", data.email);
+      payload.append("preferredChannel", data.channel);
+      payload.append("message", data.message);
+      payload.append("privacyConsent", String(data.consent));
+      payload.append("_subject", CONTACT_SUBJECT);
+      payload.append("_replyto", data.email);
 
-    form.reset({
-      name: "",
-      email: "",
-      message: "",
-      channel: "email",
-      consent: false,
-    });
+      const response = await fetch(resolvedEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: payload,
+      });
+
+      const result = await response.json().catch(() => null) as { error?: string; errors?: Array<{ message?: string }> } | null;
+
+      if (!response.ok) {
+        const formspreeError = result?.errors?.[0]?.message;
+        throw new Error(result?.error || formspreeError || "Impossible d'envoyer le message… réessayez.");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Message envoyé. Nous revenons vers vous…",
+      });
+
+      toast({
+        title: "Message envoyé",
+        description:
+          data.channel === "email"
+            ? "Message envoyé. Nous revenons vers vous…"
+            : `Message envoyé. Nous reviendrons vers vous via ${contactChannels[data.channel].label.toLowerCase()}.`,
+      });
+
+      form.reset({
+        name: "",
+        email: "",
+        message: "",
+        channel: "email",
+        consent: false,
+      });
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Impossible d'envoyer le message… réessayez.";
+      setSubmitStatus({
+        type: "error",
+        message,
+      });
+      toast({
+        variant: "destructive",
+        title: "Envoi impossible",
+        description: message,
+      });
+    }
   };
 
   return (
@@ -108,6 +156,13 @@ export default function ContactForm() {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <input type="hidden" name="_subject" value={CONTACT_SUBJECT} />
+          <input type="hidden" name="_replyto" value={form.watch("email")} />
+          <input type="hidden" name="fullName" value={form.watch("name")} />
+          <input type="hidden" name="email" value={form.watch("email")} />
+          <input type="hidden" name="preferredChannel" value={form.watch("channel")} />
+          <input type="hidden" name="message" value={form.watch("message")} />
+          <input type="hidden" name="privacyConsent" value={String(form.watch("consent"))} />
           <FormField
             control={form.control}
             name="name"
@@ -199,6 +254,7 @@ export default function ContactForm() {
               <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-xl border border-white/15 p-4 bg-white/5">
                 <FormControl>
                   <Checkbox
+                   
                     checked={field.value}
                     onCheckedChange={field.onChange}
                     className="border-white/50 data-[state=checked]:bg-[#E02B2B] data-[state=checked]:border-[#E02B2B]"
@@ -230,6 +286,14 @@ export default function ContactForm() {
           <p className="text-sm text-white/70 text-center">
             * Champs obligatoires
           </p>
+          {submitStatus && (
+            <p
+              className={`text-sm text-center ${submitStatus.type === "success" ? "text-emerald-300" : "text-red-300"}`}
+              role={submitStatus.type === "error" ? "alert" : "status"}
+            >
+              {submitStatus.message}
+            </p>
+          )}
         </form>
       </Form>
     </div>
