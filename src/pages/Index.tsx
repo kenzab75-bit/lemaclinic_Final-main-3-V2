@@ -100,7 +100,7 @@ const Index = () => {
       title: "Médecin / avocat",
       description: "Je souhaite contribuer au collectif et sécuriser les patients.",
       badge: "Appel à expertise",
-      target: "contact",
+      target: "contact-form",
       icon: FileCheck,
     }
   ];
@@ -439,7 +439,7 @@ const Index = () => {
 
             <MegaMenuSInformer scrollToSection={scrollToSection} />
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('contact-form')}
               className="relative text-[#E0E0E0] font-medium transition-all duration-300 group"
               aria-label="Aller à la section contact"
             >
@@ -503,7 +503,7 @@ const Index = () => {
                 </div>
 
                 <button onClick={() => {
-                  scrollToSection('contact');
+                  scrollToSection('contact-form');
                   setMobileMenuOpen(false);
                 }} className="text-left px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-accent/50 rounded-md transition-all duration-300 font-medium">
                   Contact
@@ -615,7 +615,7 @@ const Index = () => {
                         </Button>
                         <Button
                           variant="ghost"
-                          onClick={() => scrollToSection("contact")}
+                          onClick={() => scrollToSection("contact-form")}
                           className="rounded-full px-8 py-3 text-base font-medium border border-white/20 bg-white/10 text-white hover:text-white hover:bg-white/15 hover:border-white/40 backdrop-blur-md transition-all shadow-lg shadow-black/20"
                         >
                           Soutenir les victimes
@@ -1288,7 +1288,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
 
     {/* Section RGPD + Contact alignée */}
     <section
-      id="Témoignage Anonyme"
+      id="contact-form"
       className="relative py-section bg-[#FAF9FF] overflow-hidden"
     >
       {/* Gradient premium */}
