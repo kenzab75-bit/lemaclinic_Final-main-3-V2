@@ -214,12 +214,7 @@ const QuestionsVictimes = () => {
 
                 <div className="pt-2 space-y-3">
                   <Link
-                    to="/"
-                    onClick={() => {
-                      setTimeout(() => {
-                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    }}
+                    to="/#contact"
                     className="block w-full bg-[#E02B2B] hover:bg-[#b82424] text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-center hover:shadow-lg hover:shadow-[#E02B2B]/30 hover:-translate-y-0.5"
                   >
                     Contactez-nous
@@ -260,12 +255,7 @@ const QuestionsVictimes = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link
-                to="/"
-                onClick={() => {
-                  setTimeout(() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 100);
-                }}
+                to="/#contact"
                 className="inline-flex items-center gap-2 bg-[#E02B2B] hover:bg-[#b82424] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-sm hover:-translate-y-2 justify-center pulse-glow"
               >
                 <Mail className="h-5 w-5" />
