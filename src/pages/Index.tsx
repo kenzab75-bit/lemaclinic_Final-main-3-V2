@@ -152,7 +152,6 @@ const Index = () => {
     }
   ];
 
-<<<<<<< HEAD
   const handleSubmitTestimony = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setTestimonySubmitStatus(null);
@@ -182,16 +181,7 @@ const Index = () => {
     if (!endpoint) {
       const message = "Configuration manquante : définissez VITE_TESTIMONIAL_ENDPOINT";
       setTestimonySubmitStatus({ type: "error", message });
-=======
-  const handleSubmitTestimony = async () => {
-    // Vérification des champs obligatoires
-    if (!testimony.trim() || !consentChecked) {
-      toast({
-        title: "Champs requis",
-        description: "Veuillez remplir tous les champs et accepter le consentement",
-        variant: "destructive"
-      });
->>>>>>> fe1fb9e (Fix section témoignage)
+      toast({ title: "Envoi impossible", description: message, variant: "destructive" });
       return;
     }
 
