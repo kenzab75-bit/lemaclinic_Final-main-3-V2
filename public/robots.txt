@@ -13,5 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-# TODO: Replace example.com with the final production domain.
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://lemaclinic-report.fr/sitemap.xml

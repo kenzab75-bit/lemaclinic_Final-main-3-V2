@@ -72,7 +72,7 @@ Create a local `.env` file from `.env.example` and configure:
 
 ```sh
 # Option 1: explicit contact endpoint
-VITE_CONTACT_ENDPOINT=https://your-api.example.com/contact
+VITE_CONTACT_ENDPOINT=https://lemaclinic-report.fr/contact
 
 # Option 2: fallback via Supabase Edge Function (/functions/v1/contact-submit)
 VITE_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co

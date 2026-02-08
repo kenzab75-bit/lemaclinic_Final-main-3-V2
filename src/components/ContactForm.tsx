@@ -189,7 +189,7 @@ export default function ContactForm() {
                 <FormControl>
                   <Input
                     type="email"
-                    placeholder="jean.dupont@example.com"
+                    placeholder="jean.dupont@lemaclinic-report.fr"
                     {...field}
                     className="transition-all duration-200 focus:scale-[1.02] bg-white/5 border border-white/15 text-white placeholder:text-white/60 focus:border-[#E02B2B] focus:ring-2 focus:ring-[#E02B2B]/30"
                   />
