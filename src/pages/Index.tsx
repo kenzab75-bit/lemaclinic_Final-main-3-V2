@@ -1276,9 +1276,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
 
       {/* CONTENU */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 items-start h-full">
+        <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 items-start">
           {/* Bloc RGPD compact */}
-          <div className="space-y-10 h-full flex flex-col">
+          <div className="space-y-10 flex flex-col">
             <div className="text-center lg:text-left max-w-3xl">
               <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
                 <AlertTriangle className="h-4 w-4 text-primary-red" />
