@@ -177,6 +177,7 @@ const Index = () => {
       return;
     }
 
+    // En production, VITE_TESTIMONIAL_ENDPOINT doit contenir une URL Formspree valide (https://formspree.io/f/xxxxxxx).
     const endpoint = import.meta.env.VITE_TESTIMONIAL_ENDPOINT;
     if (!endpoint) {
       const message = "Configuration manquante : définissez VITE_TESTIMONIAL_ENDPOINT";
