@@ -57,6 +57,27 @@ const Index = () => {
     }
   };
 
+  useEffect(() => {
+    const sectionFromHash = window.location.hash.replace("#", "");
+    if (!sectionFromHash) return;
+
+    const timeout = window.setTimeout(() => {
+      const element = document.getElementById(sectionFromHash);
+      if (!element) return;
+
+      const headerOffset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }, 100);
+
+    return () => window.clearTimeout(timeout);
+  }, []);
+
   const heroSegments = [
     {
       id: "victime",
