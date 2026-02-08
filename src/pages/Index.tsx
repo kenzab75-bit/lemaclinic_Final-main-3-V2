@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { Scale, Shield, FileText, AlertTriangle, ChevronRight, Quote, ArrowUp, Lock, ShieldCheck, ChevronDown, Menu, Mail, Loader2, Heart, FileCheck, Sparkles, Globe, Users, Megaphone, Fingerprint, KeyRound, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,10 +19,12 @@ const Index = () => {
   const [activeFilter, setActiveFilter] = useState("Tous");
   const [testimony, setTestimony] = useState("");
   const [consentChecked, setConsentChecked] = useState(false);
-  const [testimonySegment, setTestimonySegment] = useState("victime");
-  const [testimonyChannel, setTestimonyChannel] = useState("texte");
-  const [encryptionReceipt, setEncryptionReceipt] = useState<string | null>(null);
+  const [testimonySegment, setTestimonySegment] = useState<"victime" | "professionnel" | "journaliste" | "">("");
   const [isSubmittingTestimony, setIsSubmittingTestimony] = useState(false);
+  const [testimonySubmitStatus, setTestimonySubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [displayedTestimonials, setDisplayedTestimonials] = useState(3);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -139,72 +141,91 @@ const Index = () => {
       description: "Je témoigne pour être protégée.",
     },
     {
-      id: "pro",
+      id: "professionnel",
       label: "Professionnel",
       description: "Je partage un signalement médical ou juridique.",
     },
     {
-      id: "media",
+      id: "journaliste",
       label: "Journaliste",
       description: "Je transmets une information vérifiée.",
     }
   ];
 
-  const testimonyChannels = [
-    {
-      id: "texte",
-      label: "Texte prioritaire",
-      detail: "Dépôt immédiat avec reçu chiffré.",
-    },
-    {
-      id: "memo",
-      label: "Mémo vocal",
-      detail: "Nous organisons l'envoi audio sécurisé après dépôt.",
-    },
-    {
-      id: "dossier",
-      label: "Dossier PDF",
-      detail: "Orientation vers un espace de fichiers à la demande.",
-    }
-  ];
-  const handleSubmitTestimony = async () => {
-    // Vérification des champs obligatoires
-    if (!testimony.trim() || !consentChecked) {
-      toast({
-        title: "Champs requis",
-        description: "Veuillez remplir tous les champs et accepter le consentement",
-        variant: "destructive"
-      });
+  const handleSubmitTestimony = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setTestimonySubmitStatus(null);
+
+    if (!testimonySegment) {
+      const message = "Veuillez sélectionner un profil avant d'envoyer votre témoignage.";
+      setTestimonySubmitStatus({ type: "error", message });
+      toast({ title: "Profil requis", description: message, variant: "destructive" });
       return;
     }
 
-    // On affiche l'état de chargement
+    if (testimony.trim().length < 20) {
+      const message = "Le témoignage doit contenir au moins 20 caractères.";
+      setTestimonySubmitStatus({ type: "error", message });
+      toast({ title: "Témoignage incomplet", description: message, variant: "destructive" });
+      return;
+    }
+
+    if (!consentChecked) {
+      const message = "Vous devez accepter le consentement pour envoyer le témoignage.";
+      setTestimonySubmitStatus({ type: "error", message });
+      toast({ title: "Consentement requis", description: message, variant: "destructive" });
+      return;
+    }
+
+    const endpoint = import.meta.env.VITE_TESTIMONIAL_ENDPOINT;
+    if (!endpoint) {
+      const message = "Configuration manquante : définissez VITE_TESTIMONIAL_ENDPOINT";
+      setTestimonySubmitStatus({ type: "error", message });
+      return;
+    }
+
     setIsSubmittingTestimony(true);
-    setEncryptionReceipt(null);
 
     try {
-      // Ici tu mettras plus tard la logique d'envoi réel du témoignage
-      // Pour l'instant : confirmation locale
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          witnessType: testimonySegment,
+          message: testimony.trim(),
+          privacyConsent: consentChecked,
+          page: "temoignage",
+          _subject: "[TÉMOIGNAGE] Nouveau dépôt",
+        }),
+      });
+
+      const result = await response.json().catch(() => null) as { error?: string } | null;
+      if (!response.ok) {
+        throw new Error(result?.error || "Impossible d'envoyer le témoignage. Veuillez réessayer.");
+      }
+
+      const successMessage = "Témoignage envoyé. Il sera examiné avant publication.";
+      setTestimonySubmitStatus({ type: "success", message: successMessage });
       toast({
         title: "Témoignage envoyé",
-        description: "Votre témoignage a bien été pris en compte.",
+        description: successMessage,
       });
-
-      // Réinitialisation du formulaire
       setTestimony("");
       setConsentChecked(false);
-
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Erreur lors de l'envoi du témoignage :", error);
+      const message = error instanceof Error ? error.message : "Impossible d'envoyer le témoignage. Veuillez réessayer.";
+      setTestimonySubmitStatus({ type: "error", message });
 
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
+        title: "Envoi impossible",
+        description: message,
         variant: "destructive",
       });
-
     } finally {
-      // Toujours remettre l'état à false, même en cas d’erreur
       setIsSubmittingTestimony(false);
     }
   };
@@ -1146,7 +1167,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         </div>
 
         {/* Container principal */}
-        <div className="bg-gradient-to-b from-[#213245] to-[#0f1b29] rounded-2xl p-8 lg:p-12 border border-white/10 shadow-xl backdrop-blur text-white">
+        <form onSubmit={handleSubmitTestimony} className="bg-gradient-to-b from-[#213245] to-[#0f1b29] rounded-2xl p-8 lg:p-12 border border-white/10 shadow-xl backdrop-blur text-white">
           <div className="bg-gradient-to-b from-[#213245] to-[#0f1b29] rounded-2xl p-6 mb-8 border border-white/10 shadow-lg">
             <div className="flex items-start gap-4">
               <Shield className="h-6 w-6 text-red-500 flex-shrink-0 mt-1" />
@@ -1161,6 +1182,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
             <div className="grid gap-3 md:grid-cols-3">
               {testimonySegments.map(segment => (
                 <button
+                  type="button"
                   key={segment.id}
                   onClick={() => setTestimonySegment(segment.id)}
                   className={`group text-left rounded-2xl border border-white/12 bg-gradient-to-b from-[#334E60]/95 via-[#2B4255]/95 to-[#1f2f3d]/95 p-5 md:p-6 backdrop-blur-[1px] shadow-lg shadow-black/30 transition-all duration-200 ease-out ${testimonySegment === segment.id ? "border-[#E02B2B]/80 ring-1 ring-[#E02B2B]/35 shadow-xl shadow-black/40" : "hover:-translate-y-[2px] hover:shadow-xl hover:shadow-black/40 hover:ring-1 hover:ring-[#E02B2B]/22 hover:border-white/20"}`}
@@ -1185,25 +1207,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
             />
           </div>
 
-          <div className="mb-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-white/70 mb-4">Canal de dépôt</p>
-            <div className="grid gap-3 md:grid-cols-3">
-              {testimonyChannels.map(channel => (
-                <button
-                  key={channel.id}
-                  onClick={() => setTestimonyChannel(channel.id)}
-                  className={`group text-left rounded-2xl border border-white/12 bg-gradient-to-b from-[#334E60]/95 via-[#2B4255]/95 to-[#1f2f3d]/95 p-5 backdrop-blur-[1px] shadow-lg shadow-black/30 transition-all duration-200 ease-out ${testimonyChannel === channel.id ? "border-[#E02B2B]/80 ring-1 ring-[#E02B2B]/35 shadow-xl shadow-black/40" : "hover:-translate-y-[2px] hover:shadow-xl hover:shadow-black/40 hover:ring-1 hover:ring-[#E02B2B]/22 hover:border-white/20"}`}
-                >
-                  <p className="font-semibold text-[#F5F6F7]">{channel.label}</p>
-                  <p className="text-xs text-[#D8E4EF]/90 mt-1">{channel.detail}</p>
-                </button>
-              ))}
-            </div>
-          </div>
-
           <div className="bg-gradient-to-b from-[#213245] to-[#0f1b29] rounded-2xl p-6 mb-8 border border-white/10 shadow-lg">
             <div className="flex items-start gap-4">
-              <button onClick={() => setConsentChecked(!consentChecked)} className="flex-shrink-0 mt-0.5">
+              <button type="button" onClick={() => setConsentChecked(!consentChecked)} className="flex-shrink-0 mt-0.5">
                 <div className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all duration-300 ${consentChecked ? "bg-red-600 border-red-600 shadow-red-700/40 shadow" : "border-white/40 hover:border-red-500"}`}>
                   {consentChecked && (
                     <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1223,26 +1229,20 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
             </div>
           </div>
 
-          {encryptionReceipt && (
-            <div className="mb-6 rounded-2xl border border-white/15 bg-white/5 backdrop-blur p-4 text-sm text-white shadow-inner">
-              <p className="font-semibold text-white mb-1 flex items-center gap-2">
-                <KeyRound className="h-4 w-4 text-red-500" />
-                Accusé de réception sécurisé
-              </p>
-              <p>
-                Code de suivi : <span className="font-mono text-white">{encryptionReceipt}</span>
-              </p>
-            </div>
-          )}
-
           <button
-            onClick={handleSubmitTestimony}
-            disabled={!testimony.trim() || !consentChecked || isSubmittingTestimony}
+            type="submit"
+            disabled={!testimonySegment || testimony.trim().length < 20 || !consentChecked || isSubmittingTestimony}
             className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-700/30 hover:shadow-red-700/50 hover:scale-[1.02]"
           >
             {isSubmittingTestimony ? <Loader2 className="h-5 w-5 animate-spin" /> : <Lock className="h-5 w-5" />}
             {isSubmittingTestimony ? "Chiffrement en cours..." : "Envoyer anonymement"}
           </button>
+
+          {testimonySubmitStatus && (
+            <div className={`mb-6 rounded-2xl border p-4 text-sm shadow-inner ${testimonySubmitStatus.type === "success" ? "border-emerald-400/40 bg-emerald-500/10 text-emerald-100" : "border-red-400/40 bg-red-500/10 text-red-100"}`}>
+              {testimonySubmitStatus.message}
+            </div>
+          )}
 
           <div className="mt-6 grid gap-4 md:grid-cols-2 text-sm text-white/85">
             <div className="flex items-start gap-3">
@@ -1254,7 +1254,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
               <p>Chaque dépôt génère un reçu chiffré que vous pouvez partager à votre avocat.</p>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </section>
 
