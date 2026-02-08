@@ -1276,7 +1276,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
 
       {/* CONTENU */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 items-stretch h-full">
+        <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 items-start h-full">
           {/* Bloc RGPD compact */}
           <div className="space-y-10 h-full flex flex-col">
             <div className="text-center lg:text-left max-w-3xl">
@@ -1355,7 +1355,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
           </div>
 
           {/* Bloc Contact aligné */}
-          <div className="relative flex flex-col h-full self-stretch">
+          <div className="relative flex flex-col self-start">
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,#FFFFFF0C,transparent_70%)]" />
             <div className="relative z-10">
               <ContactForm />
