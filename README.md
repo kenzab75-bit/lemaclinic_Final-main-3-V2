@@ -71,16 +71,13 @@ npm run dev -- --host
 Create a local `.env` file from `.env.example` and configure:
 
 ```sh
-# Option 1: explicit contact endpoint
+# Optional: your own backend endpoint
 VITE_CONTACT_ENDPOINT=https://your-api.example.com/contact
-
-# Option 2: fallback via Supabase Edge Function (/functions/v1/contact-submit)
-VITE_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
 ```
 
-- `VITE_CONTACT_ENDPOINT` (optional): explicit HTTP endpoint used by the contact form (`POST` JSON).
-- `VITE_SUPABASE_URL` (fallback): if `VITE_CONTACT_ENDPOINT` is empty, the form posts to `${VITE_SUPABASE_URL}/functions/v1/contact-submit`.
-- If both are missing, the form stays on page and displays a clear UI configuration error.
+- `VITE_CONTACT_ENDPOINT` (optional): explicit HTTP endpoint used by the contact form (`POST`).
+- If `VITE_CONTACT_ENDPOINT` is empty, the form falls back to Formspree:
+  `https://formspree.io/f/xykdyaad`.
 
 ## What technologies are used for this project?
 

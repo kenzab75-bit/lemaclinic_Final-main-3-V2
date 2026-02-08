@@ -12,7 +12,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Send, ShieldCheck } from "lucide-react";
 
-const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT;
+const DEFAULT_CONTACT_ENDPOINT = "https://formspree.io/f/xykdyaad";
+const CONTACT_SUBJECT = "Nouveau message - Contact site";
 
 const contactSchema = z.object({
   name: z
@@ -73,38 +74,31 @@ export default function ContactForm() {
     event?.preventDefault();
     setSubmitStatus(null);
 
-    const contactEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT;
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const resolvedEndpoint =
-      contactEndpoint || (supabaseUrl ? `${supabaseUrl}/functions/v1/contact-submit` : "");
-
-    if (!resolvedEndpoint) {
-      console.error("Missing VITE_CONTACT_ENDPOINT and VITE_SUPABASE_URL: unable to send contact form.");
-      setSubmitStatus({
-        type: "error",
-        message: "Configuration manquante : définissez VITE_CONTACT_ENDPOINT (ou VITE_SUPABASE_URL).",
-      });
-      return;
-    }
+    const resolvedEndpoint = import.meta.env.VITE_CONTACT_ENDPOINT || DEFAULT_CONTACT_ENDPOINT;
 
     try {
+      const payload = new FormData();
+      payload.append("fullName", data.name);
+      payload.append("email", data.email);
+      payload.append("preferredChannel", data.channel);
+      payload.append("message", data.message);
+      payload.append("privacyConsent", String(data.consent));
+      payload.append("_subject", CONTACT_SUBJECT);
+      payload.append("_replyto", data.email);
+
       const response = await fetch(resolvedEndpoint, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify({
-          fullName: data.name,
-          email: data.email,
-          preferredChannel: data.channel,
-          message: data.message,
-        }),
+        body: payload,
       });
 
-      const result = await response.json().catch(() => null) as { error?: string } | null;
+      const result = await response.json().catch(() => null) as { error?: string; errors?: Array<{ message?: string }> } | null;
 
       if (!response.ok) {
-        throw new Error(result?.error || "Impossible d'envoyer le message… réessayez.");
+        const formspreeError = result?.errors?.[0]?.message;
+        throw new Error(result?.error || formspreeError || "Impossible d'envoyer le message… réessayez.");
       }
 
       setSubmitStatus({
@@ -162,6 +156,13 @@ export default function ContactForm() {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <input type="hidden" name="_subject" value={CONTACT_SUBJECT} />
+          <input type="hidden" name="_replyto" value={form.watch("email")} />
+          <input type="hidden" name="fullName" value={form.watch("name")} />
+          <input type="hidden" name="email" value={form.watch("email")} />
+          <input type="hidden" name="preferredChannel" value={form.watch("channel")} />
+          <input type="hidden" name="message" value={form.watch("message")} />
+          <input type="hidden" name="privacyConsent" value={String(form.watch("consent"))} />
           <FormField
             control={form.control}
             name="name"
@@ -253,6 +254,7 @@ export default function ContactForm() {
               <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-xl border border-white/15 p-4 bg-white/5">
                 <FormControl>
                   <Checkbox
+                   
                     checked={field.value}
                     onCheckedChange={field.onChange}
                     className="border-white/50 data-[state=checked]:bg-[#E02B2B] data-[state=checked]:border-[#E02B2B]"
