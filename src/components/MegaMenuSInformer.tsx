@@ -32,7 +32,7 @@ const navItems = [
     description:
       "Même à l'étranger les patients ont des droits. Les connaître aide à éviter les pièges juridiques.",
     icon: Scale,
-    action: { type: "scroll", id: "contact" },
+    action: { type: "scroll", id: "contact-form" },
   },
   {
     title: "Vos questions fréquentes",
