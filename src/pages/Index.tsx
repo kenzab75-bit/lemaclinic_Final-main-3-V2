@@ -1299,7 +1299,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 items-start">
           {/* Bloc RGPD compact */}
-          <div className="space-y-10 flex flex-col">
+          <div className="space-y-8 lg:space-y-9 flex flex-col">
             <div className="text-center lg:text-left max-w-3xl">
               <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
                 <AlertTriangle className="h-4 w-4 text-primary-red" />
@@ -1312,8 +1312,8 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
               </p>
             </div>
 
-            <div className="w-full max-w-3xl mx-auto lg:mx-0 mt-6 mb-8 lg:mb-10">
-              <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl border border-white/40 bg-white/30 shadow-lg shadow-black/20">
+            <div className="w-full max-w-3xl mx-auto lg:mx-0 mt-5 mb-6 lg:mb-8">
+              <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl border border-white/35 bg-white/30 shadow-lg shadow-black/20">
                 <img
                   src="/docs/Image_vos_droits.jpg"
                   alt="Espace d'échange confidentiel"
@@ -1325,21 +1325,21 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
             </div>
 
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 items-stretch">
-              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
+              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-7 lg:p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
                 <ShieldCheck className="h-10 w-10 text-red-400 mb-6" />
                 <h3 className="text-lg font-bold mb-3">Chiffrement de bout en bout</h3>
                 <p className="text-white/80 leading-relaxed">
                   Les données envoyées via nos formulaires transitent par HTTPS et sont stockées dans un espace chiffré au sein de Supabase.
                 </p>
               </div>
-              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
+              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-7 lg:p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
                 <FileText className="h-10 w-10 text-red-400 mb-6" />
                 <h3 className="text-lg font-bold mb-3">Consentement explicite</h3>
                 <p className="text-white/80 leading-relaxed">
                   Nous recueillons uniquement les informations nécessaires à votre demande et vous pouvez retirer votre consentement à tout moment.
                 </p>
               </div>
-              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white md:col-span-2 xl:col-span-1">
+              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-7 lg:p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white md:col-span-2 xl:col-span-1">
                 <Lock className="h-10 w-10 text-red-400 mb-6" />
                 <h3 className="text-lg font-bold mb-3">Conservation limitée</h3>
                 <p className="text-white/80 leading-relaxed">
@@ -1349,7 +1349,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
             </div>
 
             <div className="grid lg:grid-cols-2 gap-6 items-stretch">
-              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
+              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-7 lg:p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
                 <h3 className="text-lg font-bold mb-6">Vos droits à tout moment</h3>
                 <div className="space-y-5 text-white/85 leading-relaxed">
                   <div className="flex items-start gap-3">
@@ -1373,7 +1373,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
                 </div>
               </div>
 
-              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
+              <div className="h-full flex flex-col bg-gradient-to-b from-[#22364b] to-[#0f1b29] rounded-2xl p-7 lg:p-8 border border-white/15 shadow-lg shadow-black/20 backdrop-blur-md text-white">
                 <h3 className="text-lg font-bold mb-4">Notre API sécurisée</h3>
                 <p className="text-white/80 leading-relaxed mb-6">
                   Les formulaires utilisent une fonction Supabase Edge. Chaque témoignage est haché, consigné puis isolé dans un coffre-fort numérique, ce qui permet de tracer les dépôts sans exposer l'identité des témoins.
@@ -1388,7 +1388,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
           </div>
 
           {/* Bloc Contact aligné */}
-          <div className="relative flex flex-col self-start">
+          <div className="relative flex flex-col self-start lg:sticky lg:top-24">
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,#FFFFFF0C,transparent_70%)]" />
             <div className="relative z-10">
               <ContactForm />
