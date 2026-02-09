@@ -1312,7 +1312,7 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14 items-stretch">
           <div className="h-full flex flex-col">
             <div className="h-full space-y-8 lg:space-y-9 flex flex-col">
-              <div className="w-full max-w-3xl mx-auto lg:mx-0 mt-5 mb-6 lg:mb-8">
+              <div className="w-full max-w-3xl mx-auto lg:mx-0 mt-2 mb-6 lg:mb-8">
                 <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl border border-white/35 bg-white/30 shadow-lg shadow-black/20">
                   <img
                     src="/docs/Image_vos_droits.jpg"
