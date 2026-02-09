@@ -1297,9 +1297,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
 
       {/* CONTENU */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 xl:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14 items-stretch">
           {/* Bloc RGPD compact */}
-          <div className="space-y-8 lg:space-y-9 flex flex-col">
+          <div className="h-full space-y-8 lg:space-y-9 flex flex-col">
             <div className="text-center lg:text-left max-w-3xl">
               <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
                 <AlertTriangle className="h-4 w-4 text-primary-red" />
@@ -1388,9 +1388,9 @@ Le contenu et le montant de ce devis avait été déterminants dans ma décision
           </div>
 
           {/* Bloc Contact aligné */}
-          <div className="relative flex flex-col self-start lg:sticky lg:top-24">
+          <div className="relative h-full flex flex-col">
             <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,#FFFFFF0C,transparent_70%)]" />
-            <div className="relative z-10">
+            <div className="relative z-10 h-full [&>*]:h-full">
               <ContactForm />
             </div>
           </div>
