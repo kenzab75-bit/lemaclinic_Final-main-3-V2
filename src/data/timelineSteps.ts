@@ -51,10 +51,18 @@ export const timelineSteps: TimelineStep[] = [
       "Menaces et pression : paiement immédiat sinon pas de soin",
     ],
     sources: [
-      { label: "Factures comparées", description: "Devis initial vs facture finale" },
-      { label: "Export de conversations WhatsApp" },
-    ],
+  {
+    label: "Factures comparées",
+    description: "Devis initial vs facture finale",
+    available: true,
   },
+  {
+    label: "Export de conversations WhatsApp",
+    available: false,
+    note: "Disponible prochainement",
+  },
+],
+},
   {
     id: "impasse",
     stepNumber: "Étape 3",
