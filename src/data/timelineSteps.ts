@@ -31,7 +31,7 @@ export const timelineSteps: TimelineStep[] = [
     sources: [
       { label: "Témoignage patient #1", description: "Facture initiale de 3840€ pour 13 courrones et 9 facettes" },
       { label: "Capture écran Facebook, Instagram, site web" },
-      { label: "Conversation WhatsApp" },
+      { label: "Conversation WhatsApp (Disponible prochainement)" },
     ],
   },
   {
@@ -75,8 +75,8 @@ export const timelineSteps: TimelineStep[] = [
       "Coûts de réparation en Europe dépassant largement les économies initiales",
     ],
     sources: [
-      { label: "Rapports et examens médicaux", description: "Dentistes français 2023" },
-      { label: "Témoignage patient" },
+      { label: "Rapports et examens médicaux (voir ci-desssus)", description: "Dentistes français 2023" },
+      { label: "Témoignage patient (Disponible prochainement)" },
     ],
   },
   {
@@ -96,8 +96,8 @@ export const timelineSteps: TimelineStep[] = [
       "Demande d'enquête officielle sur les pratiques de la clinique",
     ],
     sources: [
-      { label: "Groupe Facebook", description: "Nombreux témoignages recensés" },
-      { label: "Plainte en cours de dépôt" },
+      { label: "Groupe Facebook", description: "Nombreux témoignages recensés (Disponible prochainement)" },
+      { label: "Plainte en cours de dépôt (Disponible prochainement)" },
     ],
   },
 ];
