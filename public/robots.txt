@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://lemaclinic-report.fr/sitemap.xml
+Sitemap: https://lemaclinic-avis.fr/sitemap.xml
