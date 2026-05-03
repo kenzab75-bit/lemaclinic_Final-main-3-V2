@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -28,6 +29,25 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const receipt = crypto.randomUUID().split("-")[0].toUpperCase();
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+
+    if (!supabaseUrl || !supabaseServiceRoleKey) {
+      throw new Error("SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not configured");
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
+    const { error: insertError } = await supabase.from("testimony_submissions").insert({
+      testimony,
+      segment,
+      channel,
+      receipt,
+    });
+
+    if (insertError) {
+      console.error("Supabase insert error (testimony_submissions):", insertError);
+      throw new Error("Failed to store testimony");
+    }
 
     console.log("New secure testimony", {
       hash: await hashTestimony(testimony),
