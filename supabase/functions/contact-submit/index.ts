@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const defaultAllowedOrigins = [
   "http://localhost:5173",
@@ -68,8 +69,28 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+
     if (!resendApiKey) {
       throw new Error("RESEND_API_KEY not configured");
+    }
+    if (!supabaseUrl || !supabaseServiceRoleKey) {
+      throw new Error("SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not configured");
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
+
+    const { error: insertError } = await supabase.from("contact_submissions").insert({
+      full_name: fullName,
+      email,
+      preferred_channel: preferredChannel,
+      message,
+    });
+
+    if (insertError) {
+      console.error("Supabase insert error (contact_submissions):", insertError);
+      throw new Error("Failed to store contact submission");
     }
 
     const contactRecipient = Deno.env.get("CONTACT_RECIPIENT_EMAIL") ?? "collectif@lemaclinictruth.fr";
