@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const defaultAllowedOrigins = [
   "http://localhost:5173",
@@ -63,8 +64,36 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    const supabaseUrl = Deno.env.get("SUPABASE_URL");
+    const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
     if (!resendApiKey) {
       throw new Error("RESEND_API_KEY not configured");
+    }
+    if (!supabaseUrl || !supabaseServiceRoleKey) {
+      throw new Error("SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not configured");
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
+    const { error: insertError } = await supabase.from("newsletter_subscribers").insert({
+      email,
+    });
+
+    if (insertError) {
+      if (insertError.code === "23505") {
+        return new Response(
+          JSON.stringify({
+            ok: false,
+            error: "Cet email est déjà inscrit à la newsletter.",
+          }),
+          {
+            status: 409,
+            headers: { "Content-Type": "application/json", ...corsHeaders },
+          }
+        );
+      }
+
+      console.error("Supabase insert error (newsletter_subscribers):", insertError);
+      throw new Error("Failed to store newsletter subscription");
     }
 
     // Add contact to Resend audience using REST API (optional)
