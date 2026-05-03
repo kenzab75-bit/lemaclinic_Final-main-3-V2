@@ -199,7 +199,8 @@ const Index = () => {
     }
 
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const endpoint = supabaseUrl ? `${supabaseUrl}/functions/v1/secure-testimony` : "";
+    const configuredEndpoint = import.meta.env.VITE_TESTIMONIAL_ENDPOINT;
+    const endpoint = configuredEndpoint || (supabaseUrl ? `${supabaseUrl}/functions/v1/secure-testimony` : "");
     if (!endpoint) {
       const message = "Configuration manquante : définissez VITE_TESTIMONIAL_ENDPOINT";
       setTestimonySubmitStatus({ type: "error", message });
