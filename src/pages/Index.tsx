@@ -198,8 +198,8 @@ const Index = () => {
       return;
     }
 
-    // En production, VITE_TESTIMONIAL_ENDPOINT doit contenir une URL Formspree valide (https://formspree.io/f/xxxxxxx).
-    const endpoint = import.meta.env.VITE_TESTIMONIAL_ENDPOINT;
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const endpoint = supabaseUrl ? `${supabaseUrl}/functions/v1/secure-testimony` : "";
     if (!endpoint) {
       const message = "Configuration manquante : définissez VITE_TESTIMONIAL_ENDPOINT";
       setTestimonySubmitStatus({ type: "error", message });
@@ -214,14 +214,11 @@ const Index = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json",
         },
         body: JSON.stringify({
-          witnessType: testimonySegment,
-          message: testimony.trim(),
-          privacyConsent: consentChecked,
-          page: "temoignage",
-          _subject: "[TÉMOIGNAGE] Nouveau dépôt",
+          testimony: testimony.trim(),
+          segment: testimonySegment,
+          channel: "web",
         }),
       });
 
