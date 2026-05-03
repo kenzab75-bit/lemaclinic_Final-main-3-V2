@@ -1,11 +1,20 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 
-const allowedOrigins = [
+const defaultAllowedOrigins = [
   "http://localhost:5173",
-  "http://localhost:4173",
   "http://127.0.0.1:5173",
-  "http://127.0.0.1:4173",
-  // TODO: Add production domain(s).
+  "http://localhost:8080",
+  "http://127.0.0.1:8080",
+  "https://lemaclinic-truth.com",
+  "https://www.lemaclinic-truth.com",
+];
+
+const allowedOrigins = [
+  ...defaultAllowedOrigins,
+  ...((Deno.env.get("ALLOWED_ORIGINS") ?? "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)),
 ];
 
 function getCorsHeaders(origin: string | null) {
